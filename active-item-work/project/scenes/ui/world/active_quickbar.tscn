@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/active_quickbar.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory/active_item_slot.tscn" id="2_slot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 9.0
+bg_color = Color(0.025, 0.055, 0.045, 0.94)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.48, 0.64, 0.5, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.42)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_health"]
+bg_color = Color(0.54, 0.2, 0.18, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_health_bg"]
+bg_color = Color(0.04, 0.06, 0.05, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="ActiveQuickbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -126.0
+offset_right = 143.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="Content" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="StatusLabel" type="Label" parent="Panel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.81, 0.43, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="HealthRow" type="HBoxContainer" parent="Panel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HealthTitle" type="Label" parent="Panel/Content/HealthRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.87, 0.79, 1)
+theme_override_font_sizes/font_size = 12
+text = "生命"
+
+[node name="HealthBar" type="ProgressBar" parent="Panel/Content/HealthRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+size_flags_horizontal = 3
+show_percentage = false
+theme_override_styles/background = SubResource("StyleBox_health_bg")
+theme_override_styles/fill = SubResource("StyleBox_health")
+
+[node name="HealthLabel" type="Label" parent="Panel/Content/HealthRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.76, 0.67, 1)
+theme_override_font_sizes/font_size = 12
+text = "20 / 20"
+horizontal_alignment = 2
+
+[node name="Slots" type="HBoxContainer" parent="Panel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Slot1" parent="Panel/Content/Slots" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Slot2" parent="Panel/Content/Slots" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Slot3" parent="Panel/Content/Slots" instance=ExtResource("2_slot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatusTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.6
+one_shot = true

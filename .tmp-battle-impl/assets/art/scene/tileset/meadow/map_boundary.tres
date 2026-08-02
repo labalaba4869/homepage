@@ -1,0 +1,14 @@
+[gd_resource type="TileSet" format=3 uid="uid://da2q06lhpwl1l"]
+
+[ext_resource type="Texture2D" uid="uid://cbg2k70kp8i1l" path="res://assets/art/scene/tileset/meadow/boundary_debug.png" id="1_vmjoq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bru2w"]
+texture = ExtResource("1_vmjoq")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_bru2w")

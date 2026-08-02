@@ -1,0 +1,261 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/base.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/art/character/player/player.png" id="2_player"]
+
+[sub_resource type="AtlasTexture" id="Atlas_player"]
+atlas = ExtResource("2_player")
+region = Rect2(1152, 0, 64, 64)
+
+[sub_resource type="StyleBoxFlat" id="Style_panel"]
+content_margin_left = 22.0
+content_margin_top = 20.0
+content_margin_right = 22.0
+content_margin_bottom = 20.0
+bg_color = Color(0.035, 0.065, 0.052, 0.97)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.62, 0.48, 0.85)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.42)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="Style_health"]
+bg_color = Color(0.55, 0.2, 0.18, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="Style_health_bg"]
+bg_color = Color(0.02, 0.035, 0.028, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="Style_button"]
+bg_color = Color(0.16, 0.27, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.54, 0.7, 0.55, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="Style_button_hover"]
+bg_color = Color(0.23, 0.37, 0.27, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.95, 0.76, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="Style_depart"]
+bg_color = Color(0.72, 0.47, 0.18, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.83, 0.46, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Base" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.018, 0.04, 0.032, 1)
+
+[node name="TopBand" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 86.0
+grow_horizontal = 2
+color = Color(0.07, 0.13, 0.095, 1)
+
+[node name="PageMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = -28.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="PageMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="VBoxContainer" parent="PageMargin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="PageMargin/Content/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.82, 0.46, 1)
+theme_override_font_sizes/font_size = 30
+text = "苔木营地"
+
+[node name="Subtitle" type="Label" parent="PageMargin/Content/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67, 0.79, 0.68, 1)
+theme_override_font_sizes/font_size = 14
+text = "整备、整理战利品并重新进入探索"
+
+[node name="MainRow" type="HBoxContainer" parent="PageMargin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="CharacterSection" type="VBoxContainer" parent="PageMargin/Content/MainRow"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="SectionTitle" type="Label" parent="PageMargin/Content/MainRow/CharacterSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83, 0.88, 0.77, 1)
+theme_override_font_sizes/font_size = 16
+text = "探索者状态"
+
+[node name="Portrait" type="TextureRect" parent="PageMargin/Content/MainRow/CharacterSection"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+texture = SubResource("Atlas_player")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="PageMargin/Content/MainRow/CharacterSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.9, 0.73, 1)
+theme_override_font_sizes/font_size = 24
+text = "游侠"
+horizontal_alignment = 1
+
+[node name="HealthRow" type="HBoxContainer" parent="PageMargin/Content/MainRow/CharacterSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HealthTitle" type="Label" parent="PageMargin/Content/MainRow/CharacterSection/HealthRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.84, 0.77, 1)
+text = "生命"
+
+[node name="HealthBar" type="ProgressBar" parent="PageMargin/Content/MainRow/CharacterSection/HealthRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+show_percentage = false
+theme_override_styles/background = SubResource("Style_health_bg")
+theme_override_styles/fill = SubResource("Style_health")
+
+[node name="HealthLabel" type="Label" parent="PageMargin/Content/MainRow/CharacterSection/HealthRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.73, 0.65, 1)
+text = "20 / 20"
+horizontal_alignment = 2
+
+[node name="OperationsPanel" type="PanelContainer" parent="PageMargin/Content/MainRow"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("Style_panel")
+
+[node name="Operations" type="VBoxContainer" parent="PageMargin/Content/MainRow/OperationsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="OperationsTitle" type="Label" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.82, 0.47, 1)
+theme_override_font_sizes/font_size = 22
+text = "本次整备"
+
+[node name="StatusLabel" type="Label" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.82, 0.73, 1)
+autowrap_mode = 2
+
+[node name="Separator" type="HSeparator" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+layout_mode = 2
+
+[node name="InventoryLabel" type="Label" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.88, 0.8, 1)
+theme_override_font_sizes/font_size = 16
+text = "背包  0 / 20 格"
+
+[node name="CardsLabel" type="Label" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.88, 0.8, 1)
+theme_override_font_sizes/font_size = 16
+text = "获得卡牌  0 张"
+
+[node name="CoinsLabel" type="Label" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.78, 0.35, 1)
+theme_override_font_sizes/font_size = 16
+text = "持有金币  0"
+
+[node name="Spacer" type="Control" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InventoryButton" type="Button" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("Style_button")
+theme_override_styles/hover = SubResource("Style_button_hover")
+text = "打开背包"
+
+[node name="DepartButton" type="Button" parent="PageMargin/Content/MainRow/OperationsPanel/Operations"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.08, 0.03, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Style_depart")
+theme_override_styles/hover = SubResource("Style_button_hover")
+text = "再次出发"

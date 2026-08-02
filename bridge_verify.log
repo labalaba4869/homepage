@@ -1,0 +1,142 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3472268009
+EDITOR API HASH: 2212757246
+Loading resource: res://tools/editor/verify_manual_map.gd remapped: res://tools/editor/verify_manual_map.gd
+Completed load for: 'res://tools/editor/verify_manual_map.gd' remapped 'res://tools/editor/verify_manual_map.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_session.gd remapped: res://scripts/game_session.gd
+Completed load for: 'res://scripts/game_session.gd' remapped 'res://scripts/game_session.gd' at thread -1
+Loading resource: res://scripts/inventory_state.gd remapped: res://scripts/inventory_state.gd
+Completed load for: 'res://scripts/inventory_state.gd' remapped 'res://scripts/inventory_state.gd' at thread -1
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Loaded builtin CA certificates
+Loading resource: res://scenes/maps/manual/map_meadow_01.tscn remapped: res://scenes/maps/manual/map_meadow_01.tscn
+Loading resource: res://scripts/manual_level.gd remapped: res://scripts/manual_level.gd
+Completed load for: 'res://scripts/manual_level.gd' remapped 'res://scripts/manual_level.gd' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/meadow_terrain.tres remapped: res://assets/art/scene/tileset/meadow/meadow_terrain.tres
+Loading resource: res://assets/art/scene/tileset/meadow/ground_variants.png remapped: res://assets/art/scene/tileset/meadow/ground_variants.png
+Loading resource: res://.godot/imported/ground_variants.png-0a6ea4f8778ab4a64e3f588da1118285.ctex remapped: res://.godot/imported/ground_variants.png-0a6ea4f8778ab4a64e3f588da1118285.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/ground_variants.png' remapped 'res://assets/art/scene/tileset/meadow/ground_variants.png' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/road_terrain.png remapped: res://assets/art/scene/tileset/meadow/road_terrain.png
+Loading resource: res://.godot/imported/road_terrain.png-5c0367ed9ac84373f4c0d14432849a59.ctex remapped: res://.godot/imported/road_terrain.png-5c0367ed9ac84373f4c0d14432849a59.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/road_terrain.png' remapped 'res://assets/art/scene/tileset/meadow/road_terrain.png' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/water_terrain_animated.png remapped: res://assets/art/scene/tileset/meadow/water_terrain_animated.png
+Loading resource: res://.godot/imported/water_terrain_animated.png-56113ec7d872ad94a042ccd3ccc51d1d.ctex remapped: res://.godot/imported/water_terrain_animated.png-56113ec7d872ad94a042ccd3ccc51d1d.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/water_terrain_animated.png' remapped 'res://assets/art/scene/tileset/meadow/water_terrain_animated.png' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/cliff_terrain.png remapped: res://assets/art/scene/tileset/meadow/cliff_terrain.png
+Loading resource: res://.godot/imported/cliff_terrain.png-52885443cb5c4768e72190c7e1d4fb85.ctex remapped: res://.godot/imported/cliff_terrain.png-52885443cb5c4768e72190c7e1d4fb85.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/cliff_terrain.png' remapped 'res://assets/art/scene/tileset/meadow/cliff_terrain.png' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/bridge_tiles.png remapped: res://assets/art/scene/tileset/meadow/bridge_tiles.png
+Loading resource: res://.godot/imported/bridge_tiles.png-a61e8454f9a4ac486faec18579c5d8c2.ctex remapped: res://.godot/imported/bridge_tiles.png-a61e8454f9a4ac486faec18579c5d8c2.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/bridge_tiles.png' remapped 'res://assets/art/scene/tileset/meadow/bridge_tiles.png' at thread -1
+Completed load for: 'res://assets/art/scene/tileset/meadow/meadow_terrain.tres' remapped 'res://assets/art/scene/tileset/meadow/meadow_terrain.tres' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/meadow_decorations.tres remapped: res://assets/art/scene/tileset/meadow/meadow_decorations.tres
+Loading resource: res://assets/art/scene/tileset/meadow/decoration_variants.png remapped: res://assets/art/scene/tileset/meadow/decoration_variants.png
+Loading resource: res://.godot/imported/decoration_variants.png-88a50c6832a0c51f97a40e0133faab70.ctex remapped: res://.godot/imported/decoration_variants.png-88a50c6832a0c51f97a40e0133faab70.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/decoration_variants.png' remapped 'res://assets/art/scene/tileset/meadow/decoration_variants.png' at thread -1
+Completed load for: 'res://assets/art/scene/tileset/meadow/meadow_decorations.tres' remapped 'res://assets/art/scene/tileset/meadow/meadow_decorations.tres' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/meadow_environment.tres remapped: res://assets/art/scene/tileset/meadow/meadow_environment.tres
+Loading resource: res://assets/art/scene/tileset/meadow/fence_terrain.png remapped: res://assets/art/scene/tileset/meadow/fence_terrain.png
+Loading resource: res://.godot/imported/fence_terrain.png-be43df5f03b0608436e74fb5ee57b75e.ctex remapped: res://.godot/imported/fence_terrain.png-be43df5f03b0608436e74fb5ee57b75e.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/fence_terrain.png' remapped 'res://assets/art/scene/tileset/meadow/fence_terrain.png' at thread -1
+Loading resource: res://scenes/environment/meadow/tree_green.tscn remapped: res://scenes/environment/meadow/tree_green.tscn
+Loading resource: res://assets/art/scene/shadows/medium_shadow.png remapped: res://assets/art/scene/shadows/medium_shadow.png
+Loading resource: res://.godot/imported/medium_shadow.png-bc9d0c81f0d7ab683ae1ad66dc503565.ctex remapped: res://.godot/imported/medium_shadow.png-bc9d0c81f0d7ab683ae1ad66dc503565.ctex
+Completed load for: 'res://assets/art/scene/shadows/medium_shadow.png' remapped 'res://assets/art/scene/shadows/medium_shadow.png' at thread -1
+Loading resource: res://assets/art/scene/world/tree.png remapped: res://assets/art/scene/world/tree.png
+Loading resource: res://.godot/imported/tree.png-c1c005502554ea4164638d409c8d9a7a.ctex remapped: res://.godot/imported/tree.png-c1c005502554ea4164638d409c8d9a7a.ctex
+Completed load for: 'res://assets/art/scene/world/tree.png' remapped 'res://assets/art/scene/world/tree.png' at thread -1
+Completed load for: 'res://scenes/environment/meadow/tree_green.tscn' remapped 'res://scenes/environment/meadow/tree_green.tscn' at thread -1
+Loading resource: res://scenes/environment/meadow/tree_light.tscn remapped: res://scenes/environment/meadow/tree_light.tscn
+Completed load for: 'res://scenes/environment/meadow/tree_light.tscn' remapped 'res://scenes/environment/meadow/tree_light.tscn' at thread -1
+Loading resource: res://scenes/environment/meadow/tree_maple.tscn remapped: res://scenes/environment/meadow/tree_maple.tscn
+Loading resource: res://assets/art/scene/world/maple_tree.png remapped: res://assets/art/scene/world/maple_tree.png
+Loading resource: res://.godot/imported/maple_tree.png-840f21ecfbb7cc7e992242d35b200ddd.ctex remapped: res://.godot/imported/maple_tree.png-840f21ecfbb7cc7e992242d35b200ddd.ctex
+Completed load for: 'res://assets/art/scene/world/maple_tree.png' remapped 'res://assets/art/scene/world/maple_tree.png' at thread -1
+Completed load for: 'res://scenes/environment/meadow/tree_maple.tscn' remapped 'res://scenes/environment/meadow/tree_maple.tscn' at thread -1
+Loading resource: res://scenes/environment/meadow/bush_green.tscn remapped: res://scenes/environment/meadow/bush_green.tscn
+Loading resource: res://assets/art/scene/world/bush.png remapped: res://assets/art/scene/world/bush.png
+Loading resource: res://.godot/imported/bush.png-336028337cecdf7f0cd61ad4b12c325b.ctex remapped: res://.godot/imported/bush.png-336028337cecdf7f0cd61ad4b12c325b.ctex
+Completed load for: 'res://assets/art/scene/world/bush.png' remapped 'res://assets/art/scene/world/bush.png' at thread -1
+Completed load for: 'res://scenes/environment/meadow/bush_green.tscn' remapped 'res://scenes/environment/meadow/bush_green.tscn' at thread -1
+Loading resource: res://scenes/environment/meadow/grass.tscn remapped: res://scenes/environment/meadow/grass.tscn
+Loading resource: res://assets/art/scene/world/grass.png remapped: res://assets/art/scene/world/grass.png
+Loading resource: res://.godot/imported/grass.png-5d16918a678845aa86f14351098b33ca.ctex remapped: res://.godot/imported/grass.png-5d16918a678845aa86f14351098b33ca.ctex
+Completed load for: 'res://assets/art/scene/world/grass.png' remapped 'res://assets/art/scene/world/grass.png' at thread -1
+Completed load for: 'res://scenes/environment/meadow/grass.tscn' remapped 'res://scenes/environment/meadow/grass.tscn' at thread -1
+Completed load for: 'res://assets/art/scene/tileset/meadow/meadow_environment.tres' remapped 'res://assets/art/scene/tileset/meadow/meadow_environment.tres' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/map_boundary.tres remapped: res://assets/art/scene/tileset/meadow/map_boundary.tres
+Loading resource: res://assets/art/scene/tileset/meadow/boundary_debug.png remapped: res://assets/art/scene/tileset/meadow/boundary_debug.png
+Loading resource: res://.godot/imported/boundary_debug.png-9e397d480779a5cf8816d2a7c669de89.ctex remapped: res://.godot/imported/boundary_debug.png-9e397d480779a5cf8816d2a7c669de89.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/boundary_debug.png' remapped 'res://assets/art/scene/tileset/meadow/boundary_debug.png' at thread -1
+Completed load for: 'res://assets/art/scene/tileset/meadow/map_boundary.tres' remapped 'res://assets/art/scene/tileset/meadow/map_boundary.tres' at thread -1
+Loading resource: res://scenes/environment/meadow/meadow_house.tscn remapped: res://scenes/environment/meadow/meadow_house.tscn
+Loading resource: res://assets/art/scene/shadows/large_shadow.png remapped: res://assets/art/scene/shadows/large_shadow.png
+Loading resource: res://.godot/imported/large_shadow.png-b6a3961769f929dea53bde12c4c0e94b.ctex remapped: res://.godot/imported/large_shadow.png-b6a3961769f929dea53bde12c4c0e94b.ctex
+Completed load for: 'res://assets/art/scene/shadows/large_shadow.png' remapped 'res://assets/art/scene/shadows/large_shadow.png' at thread -1
+Loading resource: res://assets/art/scene/world/house.png remapped: res://assets/art/scene/world/house.png
+Loading resource: res://.godot/imported/house.png-e0e17ea9a1514b362b202ff0e307cf09.ctex remapped: res://.godot/imported/house.png-e0e17ea9a1514b362b202ff0e307cf09.ctex
+Completed load for: 'res://assets/art/scene/world/house.png' remapped 'res://assets/art/scene/world/house.png' at thread -1
+Completed load for: 'res://scenes/environment/meadow/meadow_house.tscn' remapped 'res://scenes/environment/meadow/meadow_house.tscn' at thread -1
+Loading resource: res://scenes/chest.tscn remapped: res://scenes/chest.tscn
+Loading resource: res://scripts/chest.gd remapped: res://scripts/chest.gd
+Completed load for: 'res://scripts/chest.gd' remapped 'res://scripts/chest.gd' at thread -1
+Loading resource: res://assets/art/scene/world/chest.png remapped: res://assets/art/scene/world/chest.png
+Loading resource: res://.godot/imported/chest.png-5b62cc1baf920cf193b1da04ff6b5d25.ctex remapped: res://.godot/imported/chest.png-5b62cc1baf920cf193b1da04ff6b5d25.ctex
+Completed load for: 'res://assets/art/scene/world/chest.png' remapped 'res://assets/art/scene/world/chest.png' at thread -1
+Loading resource: res://assets/art/scene/shadows/small_shadow.png remapped: res://assets/art/scene/shadows/small_shadow.png
+Loading resource: res://.godot/imported/small_shadow.png-e459e68bc092ad2cc4daea64fe067a37.ctex remapped: res://.godot/imported/small_shadow.png-e459e68bc092ad2cc4daea64fe067a37.ctex
+Completed load for: 'res://assets/art/scene/shadows/small_shadow.png' remapped 'res://assets/art/scene/shadows/small_shadow.png' at thread -1
+Completed load for: 'res://scenes/chest.tscn' remapped 'res://scenes/chest.tscn' at thread -1
+Loading resource: res://scenes/enemy.tscn remapped: res://scenes/enemy.tscn
+Loading resource: res://scripts/enemy.gd remapped: res://scripts/enemy.gd
+Loading resource: res://assets/art/character/animals/bat.png remapped: res://assets/art/character/animals/bat.png
+Loading resource: res://.godot/imported/bat.png-d06a9b1f3f30aed2e2dd992dae3714cf.ctex remapped: res://.godot/imported/bat.png-d06a9b1f3f30aed2e2dd992dae3714cf.ctex
+Completed load for: 'res://assets/art/character/animals/bat.png' remapped 'res://assets/art/character/animals/bat.png' at thread -1
+Loading resource: res://assets/art/character/animals/male_cow_brown.png remapped: res://assets/art/character/animals/male_cow_brown.png
+Loading resource: res://.godot/imported/male_cow_brown.png-b670dddf454812f91cc38483f5e754eb.ctex remapped: res://.godot/imported/male_cow_brown.png-b670dddf454812f91cc38483f5e754eb.ctex
+Completed load for: 'res://assets/art/character/animals/male_cow_brown.png' remapped 'res://assets/art/character/animals/male_cow_brown.png' at thread -1
+Loading resource: res://assets/art/character/animals/female_cow_brown.png remapped: res://assets/art/character/animals/female_cow_brown.png
+Loading resource: res://.godot/imported/female_cow_brown.png-9d60fd6b68dca0352192f8dadc72901b.ctex remapped: res://.godot/imported/female_cow_brown.png-9d60fd6b68dca0352192f8dadc72901b.ctex
+Completed load for: 'res://assets/art/character/animals/female_cow_brown.png' remapped 'res://assets/art/character/animals/female_cow_brown.png' at thread -1
+Loading resource: res://assets/art/character/animals/chicken_red.png remapped: res://assets/art/character/animals/chicken_red.png
+Loading resource: res://.godot/imported/chicken_red.png-67f2060d0d1078dc25ea9975f5daa2d1.ctex remapped: res://.godot/imported/chicken_red.png-67f2060d0d1078dc25ea9975f5daa2d1.ctex
+Completed load for: 'res://assets/art/character/animals/chicken_red.png' remapped 'res://assets/art/character/animals/chicken_red.png' at thread -1
+Loading resource: res://assets/art/character/animals/chicken_blonde_green.png remapped: res://assets/art/character/animals/chicken_blonde_green.png
+Loading resource: res://.godot/imported/chicken_blonde_green.png-79f0136c36683d2b56e7f68e6e81c7a9.ctex remapped: res://.godot/imported/chicken_blonde_green.png-79f0136c36683d2b56e7f68e6e81c7a9.ctex
+Completed load for: 'res://assets/art/character/animals/chicken_blonde_green.png' remapped 'res://assets/art/character/animals/chicken_blonde_green.png' at thread -1
+Loading resource: res://assets/art/character/animals/baby_chicken_yellow.png remapped: res://assets/art/character/animals/baby_chicken_yellow.png
+Loading resource: res://.godot/imported/baby_chicken_yellow.png-3c5ca64c71e9a350fd6fa19feea68e25.ctex remapped: res://.godot/imported/baby_chicken_yellow.png-3c5ca64c71e9a350fd6fa19feea68e25.ctex
+Completed load for: 'res://assets/art/character/animals/baby_chicken_yellow.png' remapped 'res://assets/art/character/animals/baby_chicken_yellow.png' at thread -1
+Completed load for: 'res://scripts/enemy.gd' remapped 'res://scripts/enemy.gd' at thread -1
+Completed load for: 'res://scenes/enemy.tscn' remapped 'res://scenes/enemy.tscn' at thread -1
+Loading resource: res://assets/art/scene/tileset/meadow/exit_marker.png remapped: res://assets/art/scene/tileset/meadow/exit_marker.png
+Loading resource: res://.godot/imported/exit_marker.png-86fd8b8d1e64ef9b60d7fc78755beae1.ctex remapped: res://.godot/imported/exit_marker.png-86fd8b8d1e64ef9b60d7fc78755beae1.ctex
+Completed load for: 'res://assets/art/scene/tileset/meadow/exit_marker.png' remapped 'res://assets/art/scene/tileset/meadow/exit_marker.png' at thread -1
+Loading resource: res://scripts/bridge_layer.gd remapped: res://scripts/bridge_layer.gd
+Completed load for: 'res://scripts/bridge_layer.gd' remapped 'res://scripts/bridge_layer.gd' at thread -1
+Completed load for: 'res://scenes/maps/manual/map_meadow_01.tscn' remapped 'res://scenes/maps/manual/map_meadow_01.tscn' at thread -1
+map_id=meadow_01 map_name=新绿原野
+map_rect=[P: (-1536.0, -1024.0), S: (3072.0, 2048.0)]
+GroundLayer cells=7218
+RoadLayer cells=254
+WaterLayer cells=8688
+BridgeLayer cells=38
+CliffLayer cells=56
+DecorationLayer cells=220
+TreeLayer cells=150
+BushLayer cells=75
+FenceLayer cells=38
+BoundaryLayer cells=314
+chests=4
+normal_enemies=4
+elite_enemies=1
+bosses=1
+warnings=["BatEast is placed on a water cell (26, -7)."]
+collision_hits water=1 bridge=0 boundary=2 tree=1 spawn=0

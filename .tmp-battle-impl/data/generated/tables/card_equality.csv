@@ -1,0 +1,8 @@
+equality_id,equality_name,use_num
+int,string,int
+卡牌品质ID,品质名称,最大使用次数（-1代表不限次是）
+0,普通,-1
+1,稀有,8
+2,罕见,5
+3,史诗,4
+4,传奇,3

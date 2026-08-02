@@ -1,0 +1,48 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3472268009
+EDITOR API HASH: 2212757246
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: C:/Users/laba/AppData/Roaming/Godot/editor_settings-4.7.tres remapped: C:/Users/laba/AppData/Roaming/Godot/editor_settings-4.7.tres
+Completed load for: 'C:/Users/laba/AppData/Roaming/Godot/editor_settings-4.7.tres' remapped 'C:/Users/laba/AppData/Roaming/Godot/editor_settings-4.7.tres' at thread -1
+EditorSettings: Load OK!
+EditorTheme: Generating new theme for the config '3810048042'.
+EditorTheme: Generating new icons.
+EditorTheme: Generating new fonts.
+EditorTheme: Generating new styles.
+Loading resource: C:/Users/laba/AppData/Local/Godot/editor_doc_cache-4.7.res remapped: C:/Users/laba/AppData/Local/Godot/editor_doc_cache-4.7.res
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Loaded builtin CA certificates
+Completed load for: 'C:/Users/laba/AppData/Local/Godot/editor_doc_cache-4.7.res' remapped 'C:/Users/laba/AppData/Local/Godot/editor_doc_cache-4.7.res' at thread -1
+Failed to bind socket. Error: 3.
+[   0% ] first_scan_filesystem | Started 项目初始化 (5 steps)
+[   0% ] first_scan_filesystem | 正在扫描文件结构……
+[  16% ] first_scan_filesystem | 正在加载全局类名……
+[  33% ] first_scan_filesystem | 正在校验 GDExtension……
+[  50% ] first_scan_filesystem | 正在创建自动加载脚本……
+Loading resource: res://scripts/game_session.gd remapped: res://scripts/game_session.gd
+Completed load for: 'res://scripts/game_session.gd' remapped 'res://scripts/game_session.gd' at thread -1
+Loading resource: res://scripts/inventory_state.gd remapped: res://scripts/inventory_state.gd
+Completed load for: 'res://scripts/inventory_state.gd' remapped 'res://scripts/inventory_state.gd' at thread -1
+[  66% ] first_scan_filesystem | 正在初始化插件……
+Loading resource: res://addons/funplay_mcp/plugin.gd remapped: res://addons/funplay_mcp/plugin.gd
+Completed load for: 'res://addons/funplay_mcp/plugin.gd' remapped 'res://addons/funplay_mcp/plugin.gd' at thread -1
+Failed to bind socket. Error: 3.
+[  83% ] first_scan_filesystem | 正在启动文件扫描……
+[ DONE ] first_scan_filesystem
+
+Unloading addon: res://addons/funplay_mcp/plugin.cfg
+WARNING: Scan thread aborted...
+   at: _notification (editor/file_system/editor_file_system.cpp:1757)
+Script docs haven't been properly loaded or regenerated, so don't save them to disk.
+ERROR: Cannot save project metadata to file 'res://.godot/editor/project_metadata.cfg'.
+   at: save_project_metadata (editor/settings/editor_settings.cpp:1718)
+ERROR: Cannot save file 'C:/Users/laba/AppData/Roaming/Godot/editor_settings-4.7.tres'.
+   at: save (scene/resources/resource_format_text.cpp:1768)
+ERROR: Error saving editor settings to C:/Users/laba/AppData/Roaming/Godot/editor_settings-4.7.tres
+   at: save (editor/settings/editor_settings.cpp:1525)

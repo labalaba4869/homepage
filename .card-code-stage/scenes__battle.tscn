@@ -1,0 +1,643 @@
+[gd_scene format=3 uid="uid://c1uompvpcpj2n"]
+
+[ext_resource type="Script" uid="uid://cyms03r0tq8ys" path="res://scripts/battle.gd" id="1_battle"]
+[ext_resource type="Texture2D" uid="uid://dri7fhnvlp1i0" path="res://assets/art/scene/world/grass_background.png" id="2_background"]
+[ext_resource type="PackedScene" path="res://scenes/ui/card_target_overlay.tscn" id="3_target_overlay"]
+[ext_resource type="PackedScene" path="res://scenes/ui/card_detail_overlay.tscn" id="4_card_detail"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_left"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.035, 0.075, 0.07, 0.94)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.58, 0.51, 0.55)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enemy_slot"]
+bg_color = Color(0.025, 0.04, 0.04, 0.62)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.639216, 0.415686, 0.396078, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enemy_slot_hover"]
+bg_color = Color(0.08, 0.11, 0.09, 0.78)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.952941, 0.831373, 0.482353, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_event"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.07, 0.105, 0.09, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.58, 0.51, 0.55)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_player_slot"]
+bg_color = Color(0.025, 0.04, 0.04, 0.62)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.372549, 0.65098, 0.517647, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_player_slot_hover"]
+bg_color = Color(0.08, 0.11, 0.09, 0.78)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.952941, 0.831373, 0.482353, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_right"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.04, 0.07, 0.075, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.58, 0.51, 0.55)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_end"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.239216, 0.552941, 0.419608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_end_hover"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.330196, 0.607059, 0.493725, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_retreat"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.560784, 0.317647, 0.282353, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_retreat_hover"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color(0.61349, 0.399529, 0.368471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0862745, 0.133333, 0.121569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.58, 0.51, 0.55)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_secondary"]
+bg_color = Color(0.321569, 0.384314, 0.360784, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_confirm"]
+bg_color = Color(0.607843, 0.368627, 0.270588, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Battle" type="Control" unique_id=394659363]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_battle")
+
+[node name="Background" type="TextureRect" parent="." unique_id=84102917]
+modulate = Color(0.470588, 0.580392, 0.498039, 1)
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Shade" type="ColorRect" parent="." unique_id=1177793996]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.055, 0.048, 0.74)
+
+[node name="PageMargin" type="MarginContainer" parent="." unique_id=436956307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="MainRow" type="HBoxContainer" parent="PageMargin" unique_id=633496278]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="LeftPanel" type="PanelContainer" parent="PageMargin/MainRow" unique_id=1209006733]
+custom_minimum_size = Vector2(214, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_left")
+
+[node name="LeftContent" type="VBoxContainer" parent="PageMargin/MainRow/LeftPanel" unique_id=684284129]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EnemyTitle" type="Label" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=616701500]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.788235, 0.615686, 1)
+theme_override_font_sizes/font_size = 14
+text = "遭遇目标"
+
+[node name="EnemyPortrait" type="TextureRect" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=177542984]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(104, 86)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EnemyNameLabel" type="Label" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=1833179384]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94902, 0.941176, 0.901961, 1)
+theme_override_font_sizes/font_size = 20
+text = "读取中"
+horizontal_alignment = 1
+
+[node name="EnemyHPBar" type="ProgressBar" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=1133368768]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+show_percentage = false
+
+[node name="EnemyHPLabel" type="Label" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=277725118]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.721569, 0.666667, 1)
+theme_override_font_sizes/font_size = 15
+text = "0 / 0"
+horizontal_alignment = 1
+
+[node name="ActorSpacer" type="Control" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=621431190]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerTitle" type="Label" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=1530455505]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.788235, 0.615686, 1)
+theme_override_font_sizes/font_size = 14
+text = "玩家"
+
+[node name="PlayerPortrait" type="TextureRect" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=594656555]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(104, 86)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlayerNameLabel" type="Label" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=1186381940]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94902, 0.941176, 0.901961, 1)
+theme_override_font_sizes/font_size = 20
+text = "读取中"
+horizontal_alignment = 1
+
+[node name="PlayerHPBar" type="ProgressBar" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=56746921]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+show_percentage = false
+
+[node name="PlayerHPLabel" type="Label" parent="PageMargin/MainRow/LeftPanel/LeftContent" unique_id=55824535]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.721569, 0.666667, 1)
+theme_override_font_sizes/font_size = 15
+text = "0 / 0"
+horizontal_alignment = 1
+
+[node name="CenterColumn" type="VBoxContainer" parent="PageMargin/MainRow" unique_id=1064860658]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="EnemySlotsTitle" type="Label" parent="PageMargin/MainRow/CenterColumn" unique_id=1207226449]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.717647, 0.662745, 1)
+theme_override_font_sizes/font_size = 16
+text = "敌方英雄槽"
+
+[node name="EnemySlots" type="HBoxContainer" parent="PageMargin/MainRow/CenterColumn" unique_id=1854551738]
+custom_minimum_size = Vector2(0, 187)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="EnemySlot1" type="Button" parent="PageMargin/MainRow/CenterColumn/EnemySlots" unique_id=1968826063]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(136, 187)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_enemy_slot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_enemy_slot_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enemy_slot_hover")
+
+[node name="EnemySlot2" type="Button" parent="PageMargin/MainRow/CenterColumn/EnemySlots" unique_id=1230491178]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(136, 187)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_enemy_slot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_enemy_slot_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enemy_slot_hover")
+
+[node name="EnemySlot3" type="Button" parent="PageMargin/MainRow/CenterColumn/EnemySlots" unique_id=718616498]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(136, 187)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_enemy_slot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_enemy_slot_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enemy_slot_hover")
+
+[node name="EventPanel" type="PanelContainer" parent="PageMargin/MainRow/CenterColumn" unique_id=1593341462]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_event")
+
+[node name="EventLabel" type="Label" parent="PageMargin/MainRow/CenterColumn/EventPanel" unique_id=465690629]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 19
+text = "准备战斗"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerSlotsTitle" type="Label" parent="PageMargin/MainRow/CenterColumn" unique_id=454414323]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.662745, 0.85098, 0.772549, 1)
+theme_override_font_sizes/font_size = 16
+text = "我方英雄槽"
+
+[node name="PlayerSlots" type="HBoxContainer" parent="PageMargin/MainRow/CenterColumn" unique_id=283765508]
+custom_minimum_size = Vector2(0, 187)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PlayerSlot1" type="Button" parent="PageMargin/MainRow/CenterColumn/PlayerSlots" unique_id=25719585]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(136, 187)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_player_slot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_player_slot_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_player_slot_hover")
+
+[node name="PlayerSlot2" type="Button" parent="PageMargin/MainRow/CenterColumn/PlayerSlots" unique_id=1116668037]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(136, 187)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_player_slot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_player_slot_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_player_slot_hover")
+
+[node name="PlayerSlot3" type="Button" parent="PageMargin/MainRow/CenterColumn/PlayerSlots" unique_id=298999313]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(136, 187)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_player_slot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_player_slot_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_player_slot_hover")
+
+[node name="HandHeader" type="HBoxContainer" parent="PageMargin/MainRow/CenterColumn" unique_id=1062636886]
+layout_mode = 2
+
+[node name="HandTitle" type="Label" parent="PageMargin/MainRow/CenterColumn/HandHeader" unique_id=770539821]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.945098, 0.894118, 0.741176, 1)
+theme_override_font_sizes/font_size = 16
+text = "手牌"
+
+[node name="HandHint" type="Label" parent="PageMargin/MainRow/CenterColumn/HandHeader" unique_id=1802749824]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.682353, 0.733333, 0.705882, 1)
+text = "单击查看详情；拖动卡牌到有效目标后松开"
+horizontal_alignment = 2
+
+[node name="HandScroll" type="ScrollContainer" parent="PageMargin/MainRow/CenterColumn" unique_id=942272256]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 168)
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 0
+
+[node name="HandContainer" type="HBoxContainer" parent="PageMargin/MainRow/CenterColumn/HandScroll" unique_id=1554216127]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RightPanel" type="PanelContainer" parent="PageMargin/MainRow" unique_id=997304068]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_right")
+
+[node name="RightContent" type="VBoxContainer" parent="PageMargin/MainRow/RightPanel" unique_id=259850623]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ControlTitle" type="Label" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=1415975800]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 22
+text = "回合控制"
+
+[node name="TurnLabel" type="Label" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=1587916921]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.933333, 0.886275, 1)
+theme_override_font_sizes/font_size = 18
+text = "玩家回合"
+
+[node name="EnergyLabel" type="Label" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=639690539]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47451, 0.788235, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "当前能量  0"
+
+[node name="DeckLabel" type="Label" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=338290382]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.717647, 0.772549, 0.752941, 1)
+text = "我方牌库 0 / 手牌 0    敌方牌库 0 / 手牌 0"
+autowrap_mode = 2
+
+[node name="LogTitle" type="Label" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=1789843413]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.85098, 0.839216, 1)
+theme_override_font_sizes/font_size = 15
+text = "战斗记录"
+
+[node name="LogLabel" type="RichTextLabel" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=1907979065]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 235)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.788235, 0.827451, 0.811765, 1)
+theme_override_font_sizes/normal_font_size = 13
+
+[node name="EndTurnButton" type="Button" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=1214597491]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+tooltip_text = "我方英雄将按 1、2、3 号槽从左到右依次攻击"
+focus_mode = 0
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_end")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_end")
+theme_override_styles/hover = SubResource("StyleBoxFlat_end_hover")
+text = "结束回合"
+
+[node name="RetreatButton" type="Button" parent="PageMargin/MainRow/RightPanel/RightContent" unique_id=951808056]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+tooltip_text = "无代价返回世界，2 秒内不会再次触发该怪物"
+focus_mode = 0
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_retreat")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_retreat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_retreat_hover")
+text = "撤退"
+
+[node name="CardTargetOverlay" parent="." instance=ExtResource("3_target_overlay")]
+unique_name_in_owner = true
+
+[node name="CardDetailOverlay" parent="." instance=ExtResource("4_card_detail")]
+unique_name_in_owner = true
+
+[node name="OverwriteOverlay" type="ColorRect" parent="." unique_id=629113357]
+unique_name_in_owner = true
+visible = false
+z_index = 200
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.72)
+
+[node name="OverwritePanel" type="PanelContainer" parent="OverwriteOverlay" unique_id=205759181]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -100.0
+offset_right = 220.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="OverwriteContent" type="VBoxContainer" parent="OverwriteOverlay/OverwritePanel" unique_id=823162511]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="OverwriteTitle" type="Label" parent="OverwriteOverlay/OverwritePanel/OverwriteContent" unique_id=1078143477]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 22
+text = "确认覆盖英雄"
+
+[node name="OverwriteLabel" type="Label" parent="OverwriteOverlay/OverwritePanel/OverwriteContent" unique_id=503159256]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 15
+text = "该槽位已有英雄。覆盖后旧英雄将立即死亡。"
+autowrap_mode = 2
+
+[node name="OverwriteButtons" type="HBoxContainer" parent="OverwriteOverlay/OverwritePanel/OverwriteContent" unique_id=1535930750]
+layout_mode = 2
+alignment = 2
+
+[node name="CancelOverwriteButton" type="Button" parent="OverwriteOverlay/OverwritePanel/OverwriteContent/OverwriteButtons" unique_id=686515093]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 42)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_secondary")
+text = "取消"
+
+[node name="ConfirmOverwriteButton" type="Button" parent="OverwriteOverlay/OverwritePanel/OverwriteContent/OverwriteButtons" unique_id=1136768735]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 42)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_confirm")
+text = "确认覆盖"
+
+[node name="ResultOverlay" type="ColorRect" parent="." unique_id=450934039]
+unique_name_in_owner = true
+visible = false
+z_index = 200
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.76)
+
+[node name="ResultPanel" type="PanelContainer" parent="ResultOverlay" unique_id=218754414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -125.0
+offset_right = 230.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="ResultContent" type="VBoxContainer" parent="ResultOverlay/ResultPanel" unique_id=1494611534]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="ResultTitle" type="Label" parent="ResultOverlay/ResultPanel/ResultContent" unique_id=339747995]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 30
+text = "战斗结束"
+horizontal_alignment = 1
+
+[node name="ResultMessage" type="Label" parent="ResultOverlay/ResultPanel/ResultContent" unique_id=2130777110]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "战斗结果"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ReturnButton" type="Button" parent="ResultOverlay/ResultPanel/ResultContent" unique_id=778151808]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_end")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_end")
+theme_override_styles/hover = SubResource("StyleBoxFlat_end_hover")
+text = "返回世界"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=278244135]
+unique_name_in_owner = true
+volume_db = -18.0
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1460820437]
+unique_name_in_owner = true
+volume_db = -7.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b6q3rd0j5ru1d"
+
+[deps]
+
+files=["res://data/generated/tables/card_equality.equality.translation", "res://data/generated/tables/card_equality.use.translation"]
+
+source_file="res://data/generated/tables/card_equality.csv"
+dest_files=["res://data/generated/tables/card_equality.equality.translation", "res://data/generated/tables/card_equality.use.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

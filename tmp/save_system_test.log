@@ -1,0 +1,10 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+PASS: creates an empty save slot
+PASS: writes the slot file
+PASS: loads the saved slot
+PASS: restores coins
+PASS: restores player hp
+PASS: reports an occupied slot
+PASS: reports saved slot metadata
+SAVE_SYSTEM_TEST_PASS

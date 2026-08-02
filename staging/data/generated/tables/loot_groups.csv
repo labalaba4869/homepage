@@ -1,0 +1,5 @@
+loot_group_id,loot_group_name,slot_count,fill_chance,white_chance,green_chance,blue_chance,purple_chance,gold_chance,normal_item_chance,active_item_chance,card_chance
+int,string,int,float,float,float,float,float,float,float,float,float
+掉落组唯一ID,策划识别名称,物品格数量,每格生成物品概率%,白色品质概率%,绿色品质概率%,蓝色品质概率%,紫色品质概率%,金色品质概率%,普通物品类别概率%，三类总和必须为100,主动道具类别概率%，无候选时在其他可用类别中重抽,卡牌类别概率%，英雄卡和功能卡均参与
+1,补给品,8,85,60,25,12,2,1,60,20,20
+2,材料与工具,6,75,50,30,15,4,1,60,20,20

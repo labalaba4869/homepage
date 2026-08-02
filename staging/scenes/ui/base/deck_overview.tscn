@@ -1,0 +1,203 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/deck_overview.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/card_detail_overlay.tscn" id="2_detail"]
+
+[sub_resource type="StyleBoxFlat" id="Style_panel"]
+bg_color = Color(0.022, 0.05, 0.052, 0.985)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.27, 0.43, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="Style_section"]
+bg_color = Color(0.035, 0.073, 0.068, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.18, 0.3, 0.25, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="Style_button"]
+bg_color = Color(0.13, 0.25, 0.21, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="DeckOverview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.005, 0.012, 0.014, 0.9)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = -28.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Margin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_panel")
+
+[node name="Content" type="VBoxContainer" parent="Margin/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Margin/Panel/Content"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/Panel/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.81, 0.48, 1)
+theme_override_font_sizes/font_size = 25
+text = "卡组整备"
+
+[node name="Hint" type="Label" parent="Margin/Panel/Content/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.7, 0.65, 1)
+theme_override_font_sizes/font_size = 13
+text = "当前版本仅浏览"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Margin/Panel/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 40)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("Style_button")
+text = "×"
+
+[node name="Columns" type="HBoxContainer" parent="Margin/Panel/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="OwnedSection" type="PanelContainer" parent="Margin/Panel/Content/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("Style_section")
+
+[node name="OwnedContent" type="VBoxContainer" parent="Margin/Panel/Content/Columns/OwnedSection"]
+layout_mode = 2
+
+[node name="OwnedCount" type="Label" parent="Margin/Panel/Content/Columns/OwnedSection/OwnedContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77, 0.88, 0.78, 1)
+theme_override_font_sizes/font_size = 17
+text = "已获得 0 张"
+
+[node name="OwnedScroll" type="ScrollContainer" parent="Margin/Panel/Content/Columns/OwnedSection/OwnedContent"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="OwnedGrid" type="GridContainer" parent="Margin/Panel/Content/Columns/OwnedSection/OwnedContent/OwnedScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="DeckSection" type="PanelContainer" parent="Margin/Panel/Content/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("Style_section")
+
+[node name="DeckContent" type="VBoxContainer" parent="Margin/Panel/Content/Columns/DeckSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DeckCount" type="Label" parent="Margin/Panel/Content/Columns/DeckSection/DeckContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.78, 0.43, 1)
+theme_override_font_sizes/font_size = 17
+text = "当前卡组 0 张"
+
+[node name="DeckScroll" type="ScrollContainer" parent="Margin/Panel/Content/Columns/DeckSection/DeckContent"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="DeckGrid" type="GridContainer" parent="Margin/Panel/Content/Columns/DeckSection/DeckContent/DeckScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="DeckStatus" type="Label" parent="Margin/Panel/Content/Columns/DeckSection/DeckContent"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.76, 0.42, 1)
+theme_override_font_sizes/font_size = 13
+text = ""
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DeckActionRow" type="HBoxContainer" parent="Margin/Panel/Content/Columns/DeckSection/DeckContent"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EditButton" type="Button" parent="Margin/Panel/Content/Columns/DeckSection/DeckContent/DeckActionRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_styles/normal = SubResource("Style_button")
+text = "编辑"
+
+[node name="SaveButton" type="Button" parent="Margin/Panel/Content/Columns/DeckSection/DeckContent/DeckActionRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+disabled = true
+theme_override_styles/normal = SubResource("Style_button")
+text = "保存"
+
+[node name="CardDetailOverlay" parent="." instance=ExtResource("2_detail")]
+unique_name_in_owner = true
+
+[node name="DeckLimitDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "卡组数量限制"
+ok_button_text = "知道了"

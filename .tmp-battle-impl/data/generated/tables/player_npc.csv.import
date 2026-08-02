@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dth7010l4on1a"
+
+[deps]
+
+files=["res://data/generated/tables/player_npc.actor.translation", "res://data/generated/tables/player_npc.name.translation", "res://data/generated/tables/player_npc.deck.translation", "res://data/generated/tables/player_npc.max.translation", "res://data/generated/tables/player_npc.initial.translation", "res://data/generated/tables/player_npc.move.translation"]
+
+source_file="res://data/generated/tables/player_npc.csv"
+dest_files=["res://data/generated/tables/player_npc.actor.translation", "res://data/generated/tables/player_npc.name.translation", "res://data/generated/tables/player_npc.deck.translation", "res://data/generated/tables/player_npc.max.translation", "res://data/generated/tables/player_npc.initial.translation", "res://data/generated/tables/player_npc.move.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

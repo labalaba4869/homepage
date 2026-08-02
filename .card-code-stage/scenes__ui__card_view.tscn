@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://b7wouqak2sfhs"]
+
+[ext_resource type="Script" uid="uid://dq5u7jl86yxpe" path="res://scripts/card_view.gd" id="1_card"]
+[ext_resource type="Texture2D" uid="uid://dgnme7u2kwvd7" path="res://assets/art/cards/characters/card_art_100.png" id="2_art"]
+[ext_resource type="Texture2D" uid="uid://c2ie305aty1nq" path="res://assets/art/cards/frames/card_frame_0_white.png" id="3_frame"]
+[ext_resource type="Texture2D" path="res://assets/art/cards/ui/card_use_hourglass.png" id="4_hourglass"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_selection"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.831373, 0.364706, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="BattleCardView" type="Button" unique_id=2040622942]
+custom_minimum_size = Vector2(192, 272)
+offset_right = 192.0
+offset_bottom = 272.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("1_card")
+
+[node name="CardCanvas" type="Control" parent="." unique_id=855902086]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 192.0
+offset_bottom = 272.0
+mouse_filter = 2
+
+[node name="ArtClip" type="Control" parent="CardCanvas" unique_id=1810342338]
+clip_contents = true
+anchors_preset = 0
+offset_left = 27.0
+offset_top = 20.0
+offset_right = 166.0
+offset_bottom = 158.0
+mouse_filter = 2
+
+[node name="CharacterArt" type="TextureRect" parent="CardCanvas/ArtClip" unique_id=1397816361]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_art")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="QualityFrame" type="TextureRect" parent="CardCanvas" unique_id=1973063790]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_frame")
+expand_mode = 1
+
+[node name="CardName" type="Label" parent="CardCanvas" unique_id=1719242896]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 31.0
+offset_top = 150.775
+offset_right = 161.0
+offset_bottom = 172.775
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "卡牌名称"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Description" type="Label" parent="CardCanvas" unique_id=1941017751]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 30.0
+offset_top = 175.0
+offset_right = 160.74
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0.192157, 0.211765, 0.239216, 1)
+theme_override_font_sizes/font_size = 12
+text = "这里显示卡牌描述与参数"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CostLabel" type="Label" parent="CardCanvas" unique_id=851047627]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 42.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.952941, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0823529, 0.12549, 0.164706, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackLabel" type="Label" parent="CardCanvas" unique_id=276813907]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 17.0
+offset_top = 221.0
+offset_right = 45.0
+offset_bottom = 249.0
+theme_override_colors/font_color = Color(0.972549, 0.956863, 0.862745, 1)
+theme_override_colors/font_outline_color = Color(0.0823529, 0.12549, 0.164706, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="CardCanvas" unique_id=236170156]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.0
+offset_top = 220.0
+offset_right = 170.0
+offset_bottom = 248.0
+theme_override_colors/font_color = Color(1, 0.952941, 0.929412, 1)
+theme_override_colors/font_outline_color = Color(0.0823529, 0.12549, 0.164706, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UseCountBadge" type="TextureRect" parent="CardCanvas"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 148.0
+offset_top = 5.0
+offset_right = 190.0
+offset_bottom = 47.0
+mouse_filter = 2
+texture = ExtResource("4_hourglass")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UseCountLabel" type="Label" parent="CardCanvas"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 153.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 42.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.956863, 0.784314, 1)
+theme_override_colors/font_outline_color = Color(0.0352941, 0.054902, 0.0823529, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusBar" type="HBoxContainer" parent="CardCanvas" unique_id=445007916]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 126.0
+offset_right = 168.0
+offset_bottom = 150.0
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="UnavailableOverlay" type="ColorRect" parent="CardCanvas" unique_id=2072690964]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = -14.0
+offset_bottom = -17.195007
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.04, 0.06, 0.08, 0.54)
+
+[node name="SelectionOutline" type="Panel" parent="CardCanvas" unique_id=347038780]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 172.0
+offset_bottom = 253.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_selection")

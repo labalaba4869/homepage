@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b082lpvrv6bwh"
+
+[deps]
+
+files=["res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.cost.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.description.translation"]
+
+source_file="res://data/generated/tables/cards.csv"
+dest_files=["res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.cost.translation", "res://data/generated/tables/cards.card.translation", "res://data/generated/tables/cards.description.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

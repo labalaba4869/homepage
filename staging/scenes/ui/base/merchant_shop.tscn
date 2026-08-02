@@ -1,0 +1,290 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/merchant_shop.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/art/items/icons/coin.png" id="2_coin"]
+
+[sub_resource type="StyleBoxFlat" id="Style_panel"]
+bg_color = Color(0.025, 0.055, 0.055, 0.985)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.28, 0.42, 0.34, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="Style_section"]
+bg_color = Color(0.035, 0.075, 0.068, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.32, 0.27, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="Style_button"]
+bg_color = Color(0.12, 0.24, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.52, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="Style_button_hover"]
+bg_color = Color(0.2, 0.38, 0.3, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.72, 0.64, 0.34, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="Style_buy"]
+bg_color = Color(0.62, 0.4, 0.12, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MerchantShop" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_script")
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.005, 0.012, 0.014, 0.9)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 18.0
+offset_right = -22.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Margin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_panel")
+
+[node name="Content" type="VBoxContainer" parent="Margin/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Margin/Panel/Content"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/Panel/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.96, 0.82, 0.48, 1)
+theme_override_font_sizes/font_size = 26
+text = "营地商人"
+vertical_alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="Margin/Panel/Content/Header"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("2_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinsLabel" type="Label" parent="Margin/Panel/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.83, 0.35, 1)
+theme_override_font_sizes/font_size = 20
+text = "0"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Margin/Panel/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 40)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("Style_button")
+theme_override_styles/hover = SubResource("Style_button_hover")
+text = "×"
+
+[node name="Body" type="HBoxContainer" parent="Margin/Panel/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="InventorySection" type="PanelContainer" parent="Margin/Panel/Content/Body"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("Style_section")
+
+[node name="InventoryContent" type="VBoxContainer" parent="Margin/Panel/Content/Body/InventorySection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="InventoryTitle" type="Label" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.88, 0.78, 1)
+theme_override_font_sizes/font_size = 18
+text = "出售物品"
+
+[node name="ItemScroll" type="ScrollContainer" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ItemGrid" type="GridContainer" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent/ItemScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="ItemDetails" type="Label" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.84, 0.78, 1)
+theme_override_font_sizes/font_size = 13
+text = "选择背包中的物品查看售价与详情"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SaleRow" type="HBoxContainer" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SellOneButton" type="Button" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent/SaleRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_styles/normal = SubResource("Style_button")
+theme_override_styles/hover = SubResource("Style_button_hover")
+text = "出售 1 个"
+
+[node name="SellAllButton" type="Button" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent/SaleRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_styles/normal = SubResource("Style_button")
+theme_override_styles/hover = SubResource("Style_button_hover")
+text = "出售全部"
+
+[node name="MultiRow" type="HBoxContainer" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MultiSelectButton" type="Button" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent/MultiRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+theme_override_styles/normal = SubResource("Style_button")
+theme_override_styles/pressed = SubResource("Style_button_hover")
+text = "多选"
+
+[node name="SellSelectedButton" type="Button" parent="Margin/Panel/Content/Body/InventorySection/InventoryContent/MultiRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_styles/normal = SubResource("Style_buy")
+text = "一键出售"
+
+[node name="ShopSection" type="PanelContainer" parent="Margin/Panel/Content/Body"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("Style_section")
+
+[node name="ShopContent" type="VBoxContainer" parent="Margin/Panel/Content/Body/ShopSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ShopTitle" type="Label" parent="Margin/Panel/Content/Body/ShopSection/ShopContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.78, 0.4, 1)
+theme_override_font_sizes/font_size = 18
+text = "强力卡牌"
+
+[node name="ShopScroll" type="ScrollContainer" parent="Margin/Panel/Content/Body/ShopSection/ShopContent"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ShopGrid" type="GridContainer" parent="Margin/Panel/Content/Body/ShopSection/ShopContent/ShopScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="CardDetails" type="Label" parent="Margin/Panel/Content/Body/ShopSection/ShopContent"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 82)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.85, 0.76, 1)
+theme_override_font_sizes/font_size = 13
+text = "选择右侧卡牌查看详情"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BuyButton" type="Button" parent="Margin/Panel/Content/Body/ShopSection/ShopContent"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("Style_buy")
+text = "购买"
+
+[node name="StatusLabel" type="Label" parent="Margin/Panel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72, 0.38, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellConfirmation" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "确认出售"
+ok_button_text = "确认出售"
+cancel_button_text = "取消"

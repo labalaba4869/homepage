@@ -1,0 +1,15 @@
+﻿[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/minimap/minimap_node.gd" id="1_81wc3"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" unique_id=971734981]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 128.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_81wc3")
+

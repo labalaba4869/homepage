@@ -1,0 +1,31 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+PASS: shop card 0 was granted
+PASS: shop card 1 was granted
+PASS: shop card 2 was granted
+PASS: shop card 3 was granted
+PASS: shop card 4 was granted
+PASS: shop card 5 was granted
+PASS: shop card 6 was granted
+PASS: shop card 7 was granted
+PASS: shop card 8 was granted
+PASS: shop card 9 was granted
+PASS: shop card 10 was granted
+PASS: shop card 11 was granted
+PASS: starting deck has 10 cards
+PASS: hover remains enlarged while still active
+PASS: hover returns to normal
+PASS: exported card size refreshes at runtime
+PASS: exported hover scale and slot padding refresh at runtime
+PASS: edit mode starts
+PASS: deck card has red edit outline
+PASS: cannot remove below 10 cards
+PASS: minimum deck count opens a notice
+PASS: cards can be added up to 20
+PASS: cannot add above 20 cards
+PASS: maximum deck count opens a notice
+PASS: save closes edit mode
+PASS: save writes the deck draft
+PASS: draft removal is visible
+PASS: discard keeps the saved deck
+DECK_EDITOR_TEST_PASS

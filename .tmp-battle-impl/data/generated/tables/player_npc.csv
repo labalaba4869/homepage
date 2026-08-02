@@ -1,0 +1,6 @@
+actor_id,actor_type,name,deck_id,max_hp,initial_energy,move_speed
+int,string,string,int,int,int,float
+角色唯一ID,角色类型,显示名称,使用的卡组ID,最大血量，int型,初始能量，int型,移动速度，float型；不可移动NPC填0
+0,player,游侠,1,100,6,165
+10,npc,森林巡守,1,80,6,0
+11,npc,行商人,1,60,6,0

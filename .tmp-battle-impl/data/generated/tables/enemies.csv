@@ -1,0 +1,6 @@
+enemy_id,enemy_type,name,deck_id,max_hp,initial_energy,resource_type
+int,string,string,int,int,int,string
+敌人唯一ID,敌人类型：normal、boss,显示名称,使用的卡组ID,最大血量，int型,初始能量，int型,动画和资源类型，对应敌人场景的animal_type
+1,normal,蝙蝠,1,35,6,bat
+2,normal,红色小鸡,1,45,6,chicken_red
+1000,boss,棕色公牛,1,90,6,male_cow_brown

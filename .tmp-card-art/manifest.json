@@ -1,0 +1,262 @@
+[
+  {
+    "card_id": 100,
+    "card_name": "史莱姆",
+    "card_equality": 0,
+    "asset": "card_art_100.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 200,
+    "card_name": "火史莱姆",
+    "card_equality": 1,
+    "asset": "card_art_200.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 201,
+    "card_name": "冰史莱姆",
+    "card_equality": 1,
+    "asset": "card_art_201.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 202,
+    "card_name": "电史莱姆",
+    "card_equality": 1,
+    "asset": "card_art_202.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 203,
+    "card_name": "草史莱姆",
+    "card_equality": 1,
+    "asset": "card_art_203.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 204,
+    "card_name": "岩史莱姆",
+    "card_equality": 1,
+    "asset": "card_art_204.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 205,
+    "card_name": "智者",
+    "card_equality": 1,
+    "asset": "card_art_205.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 206,
+    "card_name": "大史莱姆",
+    "card_equality": 1,
+    "asset": "card_art_206.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 207,
+    "card_name": "獠牙野猪",
+    "card_equality": 1,
+    "asset": "card_art_207.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 208,
+    "card_name": "月影狐",
+    "card_equality": 1,
+    "asset": "card_art_208.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 500,
+    "card_name": "骑士史莱姆",
+    "card_equality": 2,
+    "asset": "card_art_500.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 501,
+    "card_name": "枪骑兵",
+    "card_equality": 2,
+    "asset": "card_art_501.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 502,
+    "card_name": "火史莱姆法师",
+    "card_equality": 2,
+    "asset": "card_art_502.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 503,
+    "card_name": "冰史莱姆法师",
+    "card_equality": 2,
+    "asset": "card_art_503.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 504,
+    "card_name": "电史莱姆法师",
+    "card_equality": 2,
+    "asset": "card_art_504.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 505,
+    "card_name": "草史莱姆法师",
+    "card_equality": 2,
+    "asset": "card_art_505.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 506,
+    "card_name": "岩史莱姆法师",
+    "card_equality": 2,
+    "asset": "card_art_506.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 507,
+    "card_name": "吸血蝠",
+    "card_equality": 2,
+    "asset": "card_art_507.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 508,
+    "card_name": "铁甲犀牛",
+    "card_equality": 2,
+    "asset": "card_art_508.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 1000,
+    "card_name": "史莱姆大王",
+    "card_equality": 3,
+    "asset": "card_art_1000.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 1001,
+    "card_name": "无头骑士",
+    "card_equality": 3,
+    "asset": "card_art_1001.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 1002,
+    "card_name": "蒸汽拳手",
+    "card_equality": 3,
+    "asset": "card_art_1002.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 1003,
+    "card_name": "岩石巨像",
+    "card_equality": 3,
+    "asset": "card_art_1003.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 2000,
+    "card_name": "六翼天使",
+    "card_equality": 4,
+    "asset": "card_art_2000.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 2001,
+    "card_name": "寒霜巨龙",
+    "card_equality": 4,
+    "asset": "card_art_2001.png",
+    "size": [
+      160,
+      150
+    ]
+  },
+  {
+    "card_id": 2002,
+    "card_name": "深渊领主",
+    "card_equality": 4,
+    "asset": "card_art_2002.png",
+    "size": [
+      160,
+      150
+    ]
+  }
+]

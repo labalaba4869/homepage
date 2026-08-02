@@ -1,0 +1,339 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/inventory_view.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory/active_item_slot.tscn" id="2_active"]
+[ext_resource type="Texture2D" path="res://assets/art/items/icons/weight.png" id="3_weight"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.03, 0.065, 0.052, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.46, 0.62, 0.47, 0.82)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.16, 0.25, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.58, 0.7, 0.56, 0.7)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab"]
+bg_color = Color(0.055, 0.09, 0.072, 1)
+border_width_bottom = 2
+border_color = Color(0.25, 0.36, 0.3, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_selected"]
+bg_color = Color(0.11, 0.18, 0.14, 1)
+border_width_bottom = 3
+border_color = Color(0.91, 0.7, 0.27, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress"]
+bg_color = Color(0.72, 0.54, 0.2, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.02, 0.04, 0.032, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="InventoryView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="BackgroundShade" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.012, 0.025, 0.021, 0.78)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryPanel" type="PanelContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(460, 520)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Content" type="VBoxContainer" parent="CenterContainer/InventoryPanel"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Header" type="HBoxContainer" parent="CenterContainer/InventoryPanel/Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/InventoryPanel/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.95, 0.83, 0.48, 1)
+theme_override_font_sizes/font_size = 22
+text = "行囊"
+
+[node name="CloseButton" type="Button" parent="CenterContainer/InventoryPanel/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+tooltip_text = "关闭"
+focus_mode = 0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "×"
+
+[node name="Tabs" type="HBoxContainer" parent="CenterContainer/InventoryPanel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ItemTab" type="Button" parent="CenterContainer/InventoryPanel/Content/Tabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_selected")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_selected")
+text = "物品"
+
+[node name="CardTab" type="Button" parent="CenterContainer/InventoryPanel/Content/Tabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_selected")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_selected")
+text = "卡牌"
+
+[node name="DeckTab" type="Button" parent="CenterContainer/InventoryPanel/Content/Tabs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tab_selected")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tab_selected")
+text = "卡组"
+
+[node name="Pages" type="Control" parent="CenterContainer/InventoryPanel/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemPage" type="VBoxContainer" parent="CenterContainer/InventoryPanel/Content/Pages"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="ActiveTitle" type="Label" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.86, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "主动道具"
+horizontal_alignment = 1
+
+[node name="ActiveSlots" type="HBoxContainer" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_constants/separation = 42
+alignment = 1
+
+[node name="ActiveSlot1" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/ActiveSlots" instance=ExtResource("2_active")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActiveSlot2" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/ActiveSlots" instance=ExtResource("2_active")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActiveSlot3" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/ActiveSlots" instance=ExtResource("2_active")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CapacityRow" type="HBoxContainer" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage"]
+layout_mode = 2
+
+[node name="CapacityLabel" type="Label" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/CapacityRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.79, 0.86, 0.77, 1)
+theme_override_font_sizes/font_size = 13
+text = "背包  0 / 20 格"
+
+[node name="WeightStatus" type="HBoxContainer" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/CapacityRow"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="WeightIcon" type="TextureRect" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/CapacityRow/WeightStatus"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_weight")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WeightLabel" type="Label" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/CapacityRow/WeightStatus"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.83, 0.48, 1)
+theme_override_font_sizes/font_size = 13
+text = "0 / 30 kg"
+
+[node name="GridScroll" type="ScrollContainer" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage"]
+custom_minimum_size = Vector2(0, 145)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ItemGrid" type="GridContainer" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/GridScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 7
+columns = 5
+
+[node name="WeightBarRow" type="HBoxContainer" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="WeightBarIcon" type="TextureRect" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/WeightBarRow"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_weight")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WeightBar" type="ProgressBar" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage/WeightBarRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 30.0
+show_percentage = false
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress")
+
+[node name="DetailsLabel" type="Label" parent="CenterContainer/InventoryPanel/Content/Pages/ItemPage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.8, 0.74, 1)
+text = "点击主动道具后选择上方栏位进行绑定"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CardPage" type="VBoxContainer" parent="CenterContainer/InventoryPanel/Content/Pages"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardEmptyLabel" type="Label" parent="CenterContainer/InventoryPanel/Content/Pages/CardPage"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64, 0.7, 0.65, 1)
+text = "尚未获得未装入卡组的卡牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardScroll" type="ScrollContainer" parent="CenterContainer/InventoryPanel/Content/Pages/CardPage"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="CardGrid" type="GridContainer" parent="CenterContainer/InventoryPanel/Content/Pages/CardPage/CardScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="DeckPage" type="VBoxContainer" parent="CenterContainer/InventoryPanel/Content/Pages"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeckHint" type="Label" parent="CenterContainer/InventoryPanel/Content/Pages/DeckPage"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.78, 0.7, 1)
+text = "当前战斗卡组（本轮仅浏览）"
+horizontal_alignment = 1
+
+[node name="DeckScroll" type="ScrollContainer" parent="CenterContainer/InventoryPanel/Content/Pages/DeckPage"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="DeckGrid" type="GridContainer" parent="CenterContainer/InventoryPanel/Content/Pages/DeckPage/DeckScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="StatusLabel" type="Label" parent="CenterContainer/InventoryPanel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.66, 0.46, 1)
+horizontal_alignment = 1

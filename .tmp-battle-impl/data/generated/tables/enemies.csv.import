@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://coip0eqeivjbu"
+
+[deps]
+
+files=["res://data/generated/tables/enemies.enemy.translation", "res://data/generated/tables/enemies.name.translation", "res://data/generated/tables/enemies.deck.translation", "res://data/generated/tables/enemies.max.translation", "res://data/generated/tables/enemies.initial.translation", "res://data/generated/tables/enemies.resource.translation"]
+
+source_file="res://data/generated/tables/enemies.csv"
+dest_files=["res://data/generated/tables/enemies.enemy.translation", "res://data/generated/tables/enemies.name.translation", "res://data/generated/tables/enemies.deck.translation", "res://data/generated/tables/enemies.max.translation", "res://data/generated/tables/enemies.initial.translation", "res://data/generated/tables/enemies.resource.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

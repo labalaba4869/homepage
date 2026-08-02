@@ -1,0 +1,11 @@
+# 工具元数据 / 临时文件，不应进公开仓库
+.workbuddy/
+.preview/
+.openai/
+
+# 依赖目录（按惯例不进 git，几万个小文件会让仓库膨胀、push 极慢）
+node_modules/
+
+# 系统/编辑器垃圾
+Thumbs.db
+.DS_Store

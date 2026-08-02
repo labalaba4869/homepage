@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/merchant.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/art/character/npc/idle.png" id="2_idle"]
+
+[sub_resource type="AtlasTexture" id="Atlas_side"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="Atlas_back"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="Atlas_front"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_merchant"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_back")}],
+"loop": true,
+"name": &"back",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_front")}],
+"loop": true,
+"name": &"front",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_side")}],
+"loop": true,
+"name": &"side",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="Circle_interaction"]
+radius = 62.0
+
+[sub_resource type="RectangleShape2D" id="Rectangle_body"]
+size = Vector2(22, 18)
+
+[node name="Merchant" type="Area2D" groups=["merchant"]]
+script = ExtResource("1_script")
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+monitorable = false
+
+[node name="InteractionArea" type="CollisionShape2D" parent="."]
+shape = SubResource("Circle_interaction")
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, 8)
+shape = SubResource("Rectangle_body")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_merchant")
+animation = &"front"
+scale = Vector2(2, 2)
+
+[node name="Prompt" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -50.0
+offset_top = -58.0
+offset_right = 50.0
+offset_bottom = -32.0
+theme_override_colors/font_color = Color(1, 0.88, 0.56, 1)
+theme_override_colors/font_outline_color = Color(0.02, 0.035, 0.04, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "E  交易"
+horizontal_alignment = 1
+vertical_alignment = 1

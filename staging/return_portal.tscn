@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/return_portal.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/art/scene/world/return_portal.png" id="2_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+size = Vector2(72, 64)
+
+[node name="ReturnPortal" type="Area2D"]
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+script = ExtResource("1_script")
+
+[node name="InteractionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_portal")
+
+[node name="RuneRing" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 16)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_texture")
+modulate = Color(0.45, 1, 1, 0.36)
+z_index = -1
+
+[node name="PortalArt" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -2)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_texture")
+
+[node name="Prompt" type="Label" parent="."]
+unique_name_in_owner = true
+position = Vector2(-52, -70)
+size = Vector2(104, 24)
+theme_override_colors/font_color = Color(0.66, 1, 0.96, 1)
+theme_override_colors/font_outline_color = Color(0.02, 0.08, 0.1, 1)
+theme_override_constants/outline_size = 4
+text = "返回基地"
+horizontal_alignment = 1

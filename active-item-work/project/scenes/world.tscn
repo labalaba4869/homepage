@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://c8hcpnipex08t"]
+
+[ext_resource type="Script" uid="uid://c4m8xk7qm7cqi" path="res://scripts/world.gd" id="1_world"]
+[ext_resource type="PackedScene" uid="uid://be1qlmyboii8j" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="3_enemy"]
+[ext_resource type="PackedScene" path="res://scenes/forest_map.tscn" id="4_map"]
+[ext_resource type="PackedScene" path="res://scenes/chest.tscn" id="5_chest"]
+[ext_resource type="PackedScene" path="res://scenes/ui/world/active_quickbar.tscn" id="6_quickbar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
+bg_color = Color(0.035, 0.075, 0.055, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.52, 0.72, 0.46, 0.92)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.36)
+shadow_size = 5
+
+[node name="World" type="Node2D" unique_id=1200637474]
+y_sort_enabled = true
+script = ExtResource("1_world")
+
+[node name="ForestMap" parent="." unique_id=268235648 instance=ExtResource("4_map")]
+
+[node name="Actors" type="Node2D" parent="." unique_id=1479958809]
+y_sort_enabled = true
+
+[node name="Player" parent="Actors" unique_id=797796969 instance=ExtResource("2_player")]
+position = Vector2(-600, 160)
+speed = 165.0
+
+[node name="EnemyA" parent="Actors" unique_id=743156032 instance=ExtResource("3_enemy")]
+position = Vector2(420, -72)
+enemy_id = 1
+patrol_distance = 105.0
+patrol_speed = 72.0
+
+[node name="EnemyB" parent="Actors" unique_id=185768479 instance=ExtResource("3_enemy")]
+position = Vector2(-260, 310)
+enemy_id = 1000
+animal_type = "male_cow_brown"
+patrol_distance = 88.0
+patrol_speed = 56.0
+
+[node name="EnemyC" parent="Actors" unique_id=1943903646 instance=ExtResource("3_enemy")]
+position = Vector2(520, 286)
+enemy_id = 2
+animal_type = "chicken_red"
+patrol_distance = 72.0
+patrol_speed = 64.0
+
+[node name="ChestA" parent="Actors" unique_id=112837523 instance=ExtResource("5_chest")]
+position = Vector2(-292, -174)
+container_instance_id = "forest_chest_a"
+loot_group_id = 1
+
+[node name="ChestB" parent="Actors" unique_id=1455779366 instance=ExtResource("5_chest")]
+position = Vector2(602, 330)
+container_instance_id = "forest_chest_b"
+loot_group_id = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=446257219]
+
+[node name="ActiveQuickbar" parent="CanvasLayer" instance=ExtResource("6_quickbar")]
+unique_name_in_owner = true
+
+[node name="HUDPanel" type="PanelContainer" parent="CanvasLayer" unique_id=735240790]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 352.0
+offset_bottom = 146.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
+
+[node name="Margin" type="MarginContainer" parent="CanvasLayer/HUDPanel" unique_id=2055375496]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUDPanel/Margin" unique_id=1723801713]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Title" type="Label" parent="CanvasLayer/HUDPanel/Margin/VBoxContainer" unique_id=586179065]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.84, 0.52, 1)
+theme_override_font_sizes/font_size = 18
+text = "Mosswood Crossing"
+
+[node name="Location" type="Label" parent="CanvasLayer/HUDPanel/Margin/VBoxContainer" unique_id=56568159]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.84, 0.66, 1)
+text = "Ranger road - eastern ford"
+
+[node name="BattleHint" type="Label" parent="CanvasLayer/HUDPanel/Margin/VBoxContainer" unique_id=1084498872]
+layout_mode = 2
+text = "靠近宝箱按 E 搜索，按 B 打开背包。"
+autowrap_mode = 2
+
+[node name="CardCount" type="Label" parent="CanvasLayer/HUDPanel/Margin/VBoxContainer" unique_id=178699648]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.9, 0.78, 1)
+text = "卡组 1    背包 0/20    负重 0/30 kg"

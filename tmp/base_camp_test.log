@@ -1,0 +1,17 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: ground has 32x20 cells
+PASS: road clearing is painted
+PASS: player exists
+PASS: merchant exists
+PASS: campfire exists
+PASS: shop has cards
+PASS: shop table has an enabled card
+PASS: card purchase succeeds
+PASS: card purchase deducts coins
+PASS: purchased card enters owned cards
+PASS: bulk sale pays the expected total
+PASS: deck overview loads
+BASE_CAMP_TEST_PASS

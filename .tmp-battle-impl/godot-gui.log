@@ -1,0 +1,5 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 Core Profile Context 26.6.4.260624 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon RX 9070 XT
+
+ERROR: Error opening file 'res://icon.svg'.
+   at: load_image (core/io/image_loader.cpp:91)

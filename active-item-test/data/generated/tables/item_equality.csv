@@ -1,0 +1,8 @@
+equality_id,equality_name,search_time,frame_path
+int,string,float,string
+品质ID,品质中文名,单格物品搜索时间，单位秒,物品品质底框资源路径
+0,白色,1,res://assets/art/items/frames/item_frame_0_white.png
+1,绿色,1.5,res://assets/art/items/frames/item_frame_1_green.png
+2,蓝色,2,res://assets/art/items/frames/item_frame_2_blue.png
+3,紫色,3,res://assets/art/items/frames/item_frame_3_purple.png
+4,金色,5,res://assets/art/items/frames/item_frame_4_gold.png

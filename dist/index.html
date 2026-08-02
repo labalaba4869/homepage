@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>吴辉祥 | 个人主页与游戏 Demo 展示站</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell" data-page="portfolio-panel">
+      <header class="site-header">
+        <!-- 导航区：这里修改顶部 Logo、导航名称和锚点 -->
+        <nav class="nav">
+          <div class="brand">
+            <button class="brand-avatar-button avatar-preview-trigger" type="button" aria-label="查看头像大图">
+              <img class="brand-avatar" src="assets/images/avatar-home.png" alt="吴辉祥头像" />
+            </button>
+            <span class="brand-text">奔赴下一个相遇！</span>
+          </div>
+          <button class="nav-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="nav-links">
+            <a href="#home">首页</a>
+            <a href="#games">Demo试玩</a>
+            <a href="#works">策划作品</a>
+            <a href="#about">关于我</a>
+            <a href="#contact">联系方式</a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="main-panel">
+        <!-- Hero 区：这里修改首页主标题、副标题和个人介绍 -->
+        <section id="home" class="hero">
+          <div class="hero-content">
+            <p class="eyebrow">Game Design Portfolio</p>
+            <h1>你好，我是 <span>吴辉祥</span></h1>
+            <p class="hero-role">游戏策划 / 系统策划 / 狂热的游戏爱好者</p>
+            <p class="hero-text">
+              专注于RPG、MOBA以及策略卡牌游戏的玩法设计，对于其他Roguelike、模拟经营、休闲解密等品类也有较深体验。
+              这里是我的作品集与可即时游玩的游戏 Demo，希望您能喜欢并留下您的建议。
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#about">了解我</a>
+              <a class="btn btn-secondary" href="#works">查看策划作品</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="像素风游戏横幅预览">
+            <div class="game-preview-card">
+              <div class="pixel-moon"></div>
+              <div class="pixel-mountain mountain-one"></div>
+              <div class="pixel-mountain mountain-two"></div>
+              <div class="pixel-platform platform-main"></div>
+              <div class="pixel-platform platform-side"></div>
+              <div class="pixel-character"></div>
+              <div class="pixel-spark spark-one"></div>
+              <div class="pixel-spark spark-two"></div>
+              <div class="pixel-spark spark-three"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 游戏 Demo 区：这里修改每个游戏卡片的名称、类型、简介和试玩地址 -->
+        <section id="games" class="section demo-section">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Instant Play Demo</p>
+              <h2>即时游玩 Demo</h2>
+            </div>
+            <a class="more-link" href="#games">更多游戏</a>
+          </div>
+
+          <div class="category-tabs" aria-label="游戏分类筛选">
+            <!-- 分类筛选按钮：data-filter 需要与游戏卡片 data-category 中的关键词对应 -->
+            <button class="filter-btn active" type="button" data-filter="全部">全部</button>
+            <button class="filter-btn" type="button" data-filter="动作">动作</button>
+            <button class="filter-btn" type="button" data-filter="Roguelike">Roguelike</button>
+            <button class="filter-btn" type="button" data-filter="休闲">休闲</button>
+            <button class="filter-btn" type="button" data-filter="策略">策略</button>
+            <button class="filter-btn" type="button" data-filter="抓宠">抓宠</button>
+            <button class="filter-btn" type="button" data-filter="模拟经营">模拟经营</button>
+          </div>
+
+          <div class="games-grid">
+            <!-- 游戏卡片：修改 h3、game-type、简介文字，以及按钮上的 data-game-url 即可替换 Demo -->
+            <article class="game-card" data-category="动作 冒险">
+              <div class="game-cover cover-adventure"><span>01</span></div>
+              <div class="game-body">
+                <p class="game-type">动作 / 冒险</p>
+                <h3>像素冒险记</h3>
+                <p>控制角色探索森林，击败怪物并收集宝箱。</p>
+                <button class="btn btn-card play-btn" type="button" data-game-title="像素冒险记" data-game-url="games/demo1/index.html">开始试玩</button>
+              </div>
+            </article>
+
+            <article class="game-card" data-category="Roguelike">
+              <div class="game-cover cover-dungeon"><span>02</span></div>
+              <div class="game-body">
+                <p class="game-type">Roguelike</p>
+                <h3>地牢探索者</h3>
+                <p>随机地牢、随机道具，每局都有不同体验。</p>
+                <button class="btn btn-card play-btn" type="button" data-game-title="地牢探索者" data-game-url="games/demo3/index.html">开始试玩</button>
+              </div>
+            </article>
+
+            <article class="game-card" data-category="休闲 益智">
+              <div class="game-cover cover-puzzle"><span>03</span></div>
+              <div class="game-body">
+                <p class="game-type">休闲 / 益智</p>
+                <h3>方块拼图</h3>
+                <p>通过拖拽方块完成消除挑战。</p>
+                <button class="btn btn-card play-btn" type="button" data-game-title="方块拼图" data-game-url="games/demo2/index.html">开始试玩</button>
+              </div>
+            </article>
+
+            <article class="game-card" data-category="策略 塔防">
+              <div class="game-cover cover-kingdom"><span>04</span></div>
+              <div class="game-body">
+                <p class="game-type">策略 / 塔防</p>
+                <h3>王国守卫战</h3>
+                <p>建造防御塔，抵御怪物进攻。</p>
+                <button class="btn btn-card play-btn" type="button" data-game-title="王国守卫战" data-game-url="games/demo4/index.html">开始试玩</button>
+              </div>
+            </article>
+
+            <article class="game-card" data-category="抓宠 养成">
+              <div class="game-cover cover-pet"><span>05</span></div>
+              <div class="game-body">
+                <p class="game-type">抓宠 / 养成</p>
+                <h3>小宠物乐园</h3>
+                <p>捕捉宠物、培养宠物并完成图鉴收集。</p>
+                <button class="btn btn-card play-btn" type="button" data-game-title="小宠物乐园" data-game-url="games/demo5/index.html">开始试玩</button>
+              </div>
+            </article>
+
+            <article class="game-card" data-category="模拟经营">
+              <div class="game-cover cover-farm"><span>06</span></div>
+              <div class="game-body">
+                <p class="game-type">模拟经营</p>
+                <h3>迷你农场</h3>
+                <p>种植作物、经营农场、解锁建筑。</p>
+                <button class="btn btn-card play-btn" type="button" data-game-title="迷你农场" data-game-url="games/demo6/index.html">开始试玩</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 策划作品区：这里修改策划作品模块 -->
+        <section id="works" class="section portfolio-section">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Planning Works</p>
+              <h2>游戏策划作品</h2>
+            </div>
+            <a class="more-link" href="#works">更多作品</a>
+          </div>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="work-tag">Level Design</span>
+              <h3>关卡设计</h3>
+              <p>地图结构、关卡节奏、敌人配置与玩家路线设计。</p>
+            </article>
+            <article class="portfolio-card">
+              <span class="work-tag">System Design</span>
+              <h3>系统设计</h3>
+              <p>养成系统、宠物系统、战斗系统与经济循环设计。</p>
+            </article>
+            <article class="portfolio-card">
+              <span class="work-tag">Numerical Balance</span>
+              <h3>数值平衡</h3>
+              <p>成长曲线、资源产出、消耗模型与战斗数值设计。</p>
+            </article>
+            <article class="portfolio-card">
+              <span class="work-tag">Document</span>
+              <h3>文档展示</h3>
+              <p>策划案、功能说明文档和玩法拆解文档。</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 底部信息区：这里修改关于我和联系方式 -->
+        <section class="section about-contact">
+          <article id="about" class="info-card about-card">
+            <div class="mini-avatar" aria-hidden="true"></div>
+            <div>
+              <p class="eyebrow">About Me</p>
+              <h2>关于我</h2>
+              <p>
+                我是一名游戏策划，注重于系统策划方向，各个平台、游戏品类均有体验，重点专注于RPG、MOBA以及策略卡牌游戏的玩法设计，如果您对我感兴趣的话欢迎联系我合作。
+              </p>
+            </div>
+          </article>
+
+          <article id="contact" class="info-card contact-card">
+            <p class="eyebrow">Contact</p>
+            <h2>联系我</h2>
+            <div class="email-copy-wrapper">
+              <span class="email-text" id="emailText">Email: huixiang4869@126.com</span>
+              <button class="copy-tooltip" id="copyEmailBtn" type="button">复制邮箱</button>
+            </div>
+            <div class="contact-list">
+              
+              <a href="https://space.bilibili.com/353380270?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer">Bilibili: https://space.bilibili.com/353380270</a>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="avatar-modal" id="avatarModal" aria-hidden="true">
+      <div class="avatar-modal-backdrop" data-avatar-close></div>
+
+      <div class="avatar-modal-content" role="dialog" aria-modal="true" aria-label="头像预览">
+        <button class="avatar-modal-close" type="button" data-avatar-close aria-label="关闭头像预览">
+          ×
+        </button>
+
+        <img class="avatar-modal-image" src="assets/images/avatar-home.png" alt="吴辉祥头像大图" />
+      </div>
+    </div>
+
+    <div class="modal" id="gameModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+          <h2 id="modalTitle">游戏试玩</h2>
+          <button class="modal-close" type="button" aria-label="关闭试玩窗口" data-close-modal>×</button>
+        </div>
+        <iframe id="gameFrame" title="游戏试玩窗口" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

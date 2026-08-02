@@ -1,0 +1,25 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+map_id=meadow_01 map_name=新绿原野
+map_rect=[P: (-2258.0, -1312.0), S: (5590.0, 3470.0)]
+GroundLayer cells=7218
+RoadLayer cells=254
+WaterLayer cells=8597
+BridgeLayer cells=162
+CliffLayer cells=0
+DecorationLayer cells=354
+TreeLayer cells=178
+BushLayer cells=93
+FenceLayer cells=46
+BoundaryLayer cells=0
+chests=8
+normal_enemies=5
+elite_enemies=1
+bosses=1
+warnings=["BoundaryLayer is empty; the player may leave the map."]
+SCRIPT ERROR: Out of bounds get index '0' (on base: 'Array[Vector2i]')
+   at: _verify (res://tools/editor/verify_manual_map.gd:41)
+   GDScript backtrace (most recent call first):
+       [0] _verify (res://tools/editor/verify_manual_map.gd:41)

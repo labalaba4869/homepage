@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>像素冒险记 Demo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        color: #f7fbff;
+        font-family: "Trebuchet MS", "Microsoft YaHei", Arial, sans-serif;
+        background: #07111f;
+      }
+
+      .demo-shell {
+        width: min(100% - 28px, 900px);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        color: #20f4ff;
+        font-size: clamp(24px, 5vw, 38px);
+        text-shadow: 0 0 18px rgba(32, 244, 255, 0.42);
+      }
+
+      p {
+        margin: 0 0 16px;
+        color: #aab8d0;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        max-width: 760px;
+        aspect-ratio: 16 / 9;
+        margin: 0 auto;
+        border: 3px solid rgba(32, 244, 255, 0.6);
+        border-radius: 8px;
+        background: #102018;
+        image-rendering: pixelated;
+        box-shadow: 0 0 30px rgba(32, 244, 255, 0.24);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-shell">
+      <h1>像素冒险记 Demo</h1>
+      <p>使用方向键移动蓝色角色，收集金币并避开红色怪物。</p>
+      <canvas id="gameCanvas" width="760" height="428" aria-label="像素冒险记 Canvas Demo"></canvas>
+    </main>
+
+    <script>
+      const canvas = document.querySelector("#gameCanvas");
+      const ctx = canvas.getContext("2d");
+      const keys = {};
+      const player = { x: 80, y: 260, size: 30, speed: 4 };
+      const coin = { x: 560, y: 250, size: 22, collected: false };
+      const monster = { x: 380, y: 260, size: 34 };
+
+      window.addEventListener("keydown", (event) => {
+        keys[event.key] = true;
+      });
+
+      window.addEventListener("keyup", (event) => {
+        keys[event.key] = false;
+      });
+
+      function update() {
+        if (keys.ArrowLeft) player.x -= player.speed;
+        if (keys.ArrowRight) player.x += player.speed;
+        if (keys.ArrowUp) player.y -= player.speed;
+        if (keys.ArrowDown) player.y += player.speed;
+
+        player.x = Math.max(0, Math.min(canvas.width - player.size, player.x));
+        player.y = Math.max(90, Math.min(canvas.height - 72 - player.size, player.y));
+
+        const dx = player.x - coin.x;
+        const dy = player.y - coin.y;
+        if (!coin.collected && Math.hypot(dx, dy) < 42) {
+          coin.collected = true;
+        }
+      }
+
+      function drawBackground() {
+        ctx.fillStyle = "#102544";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#1f7a46";
+        ctx.fillRect(0, canvas.height - 72, canvas.width, 72);
+
+        ctx.fillStyle = "#2da35d";
+        for (let x = 0; x < canvas.width; x += 48) {
+          ctx.fillRect(x, canvas.height - 72, 24, 12);
+        }
+
+        ctx.fillStyle = "rgba(255, 255, 255, 0.55)";
+        ctx.fillRect(100, 70, 90, 24);
+        ctx.fillRect(130, 48, 48, 24);
+        ctx.fillRect(540, 96, 110, 24);
+        ctx.fillRect(570, 72, 48, 24);
+      }
+
+      function draw() {
+        drawBackground();
+
+        if (!coin.collected) {
+          ctx.fillStyle = "#ffd166";
+          ctx.fillRect(coin.x, coin.y, coin.size, coin.size);
+          ctx.fillStyle = "#fff0a3";
+          ctx.fillRect(coin.x + 6, coin.y + 4, 8, 14);
+        }
+
+        ctx.fillStyle = "#ff4f6d";
+        ctx.fillRect(monster.x, monster.y, monster.size, monster.size);
+        ctx.fillStyle = "#7cff6b";
+        ctx.fillRect(monster.x + 8, monster.y + 10, 6, 6);
+        ctx.fillRect(monster.x + 22, monster.y + 10, 6, 6);
+
+        ctx.fillStyle = "#4f8cff";
+        ctx.fillRect(player.x, player.y, player.size, player.size);
+        ctx.fillStyle = "#ffd6a5";
+        ctx.fillRect(player.x + 6, player.y - 14, 18, 14);
+
+        ctx.fillStyle = "#f7fbff";
+        ctx.font = "18px Microsoft YaHei, Arial";
+        ctx.fillText(coin.collected ? "金币已收集！" : "目标：收集金币", 20, 32);
+      }
+
+      function loop() {
+        update();
+        draw();
+        requestAnimationFrame(loop);
+      }
+
+      loop();
+    </script>
+  </body>
+</html>

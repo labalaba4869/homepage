@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/campfire.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/art/scene/base_camp/campfire_6_frames.png" id="2_fire"]
+
+[sub_resource type="AtlasTexture" id="Atlas_0"]
+atlas = ExtResource("2_fire")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="Atlas_1"]
+atlas = ExtResource("2_fire")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="Atlas_2"]
+atlas = ExtResource("2_fire")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="Atlas_3"]
+atlas = ExtResource("2_fire")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="Atlas_4"]
+atlas = ExtResource("2_fire")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="Atlas_5"]
+atlas = ExtResource("2_fire")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fire"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("Atlas_0")}, {"duration": 1.0, "texture": SubResource("Atlas_1")}, {"duration": 1.0, "texture": SubResource("Atlas_2")}, {"duration": 1.0, "texture": SubResource("Atlas_3")}, {"duration": 1.0, "texture": SubResource("Atlas_4")}, {"duration": 1.0, "texture": SubResource("Atlas_5")}],
+"loop": true,
+"name": &"burn",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_light"]
+offsets = PackedFloat32Array(0, 0.32, 0.72, 1)
+colors = PackedColorArray(1, 0.83, 0.42, 1, 1, 0.45, 0.14, 0.7, 0.65, 0.16, 0.04, 0.22, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_light"]
+gradient = SubResource("Gradient_light")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="Circle_fire"]
+radius = 26.0
+
+[node name="Campfire" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="FireLight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+energy = 1.32
+color = Color(1, 0.58, 0.26, 1)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fire")
+animation = &"burn"
+autoplay = "burn"
+scale = Vector2(0.75, 0.75)
+
+[node name="Embers" type="CPUParticles2D" parent="."]
+position = Vector2(0, -28)
+amount = 14
+lifetime = 1.15
+randomness = 0.55
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(15, 4)
+direction = Vector2(0, -1)
+spread = 22.0
+gravity = Vector2(0, -8)
+initial_velocity_min = 18.0
+initial_velocity_max = 36.0
+scale_amount_min = 1.0
+scale_amount_max = 2.0
+color = Color(1, 0.55, 0.18, 0.85)
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, 18)
+shape = SubResource("Circle_fire")

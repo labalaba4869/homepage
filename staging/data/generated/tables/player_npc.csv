@@ -1,0 +1,6 @@
+actor_id,actor_type,name,deck_id,max_hp,initial_energy,move_speed,inventory_slots,max_carry_weight,initial_item_ids,initial_item_counts
+int,string,string,int,int,int,float,int,float,int[],int[]
+角色唯一ID,角色类型,显示名称,使用的卡组ID,最大血量，int型,初始能量，int型,移动速度，float型；不可移动NPC填0,背包格数，NPC可填0,最大负重，NPC可填0,初始物品ID，英文分号分隔,初始物品数量，与ID顺序对应
+0,player,游侠,3,20,6,165,20,30,10000;2,2;3
+10,npc,森林巡守,1,10,6,0,0,0,,
+11,npc,旅行商人,1,10,6,0,0,0,,
