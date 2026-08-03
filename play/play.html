@@ -12,23 +12,25 @@
         <a class="back-link" href="../index.html">← 返回首页</a>
       </header>
 
-      <main class="play-grid" id="playGrid" aria-busy="true">
-        <!-- 左列：标题 / 游戏画面 / 操作方式 + 更新计划 -->
+      <!-- 顶部：标题区（横跨整行） -->
+      <section class="block title-block" aria-busy="true" id="titleBlock">
+        <h1 id="gameTitle">加载中…</h1>
+        <p class="subtitle" id="gameSubtitle"></p>
+        <p class="type-tag" id="gameTypeTag"></p>
+      </section>
+
+      <!-- 中部：游戏画面（横跨整行，尺寸放大） -->
+      <section class="block game-block">
+        <div class="game-frame-wrap">
+          <iframe id="gameFrame" src="" allowfullscreen title="游戏画面"></iframe>
+          <button class="game-zoom-btn" id="gameZoomBtn" type="button" aria-label="放大游戏画面">放大全屏</button>
+        </div>
+        <p class="game-hint">点击上方画面或「放大全屏」可进入全屏体验，按 ESC 退出。</p>
+      </section>
+
+      <!-- 底部：两列 — 左=操作+更新计划 / 右=更新日志+玩家反馈 -->
+      <div class="play-grid">
         <section class="col col-left">
-          <div class="block title-block">
-            <h1 id="gameTitle">加载中…</h1>
-            <p class="subtitle" id="gameSubtitle"></p>
-            <p class="type-tag" id="gameTypeTag"></p>
-          </div>
-
-          <div class="block game-block">
-            <div class="game-frame-wrap">
-              <iframe id="gameFrame" src="" allowfullscreen title="游戏画面"></iframe>
-              <button class="game-zoom-btn" id="gameZoomBtn" type="button" aria-label="放大游戏画面">放大全屏</button>
-            </div>
-            <p class="game-hint">点击上方画面可放大到全屏体验，点击空白处退出。</p>
-          </div>
-
           <div class="block ops-block">
             <h2>操作方式</h2>
             <ul class="info-list" id="controlsList"></ul>
@@ -38,7 +40,6 @@
           </div>
         </section>
 
-        <!-- 右列：更新日志 / 玩家反馈 -->
         <section class="col col-right">
           <div class="block changelog-block">
             <h2>更新日志</h2>
@@ -51,7 +52,7 @@
             <div id="giscusContainer"></div>
           </div>
         </section>
-      </main>
+      </div>
 
       <div id="loadError" class="load-error" hidden>
         <p>没有找到对应的游戏数据，请确认链接是否正确。</p>
@@ -65,7 +66,6 @@
       <iframe id="lightboxFrame" src="" allowfullscreen title="游戏全屏"></iframe>
     </div>
 
-    <!-- Giscus 评论脚本：按需动态加载（在 play.js 里根据数据插入） -->
     <script src="play.js"></script>
   </body>
 </html>

@@ -5,6 +5,19 @@
   const params = new URLSearchParams(location.search);
   const gameId = params.get("id");
 
+  // JSON 里 gameUrl 是相对仓库根的路径（如 "games/card-search-and-attack/index.html"），
+  // 在 play.html 里 iframe 用相对路径会基于 play/ 目录解析，导致 404。
+  // 这里用 location.href 做 base，加上 "../" 跨出 play/ 目录，再解析成绝对 URL。
+  const resolveFromRepoRoot = (rel) => {
+    if (!rel) return "";
+    try {
+      return new URL("../" + rel, location.href).href;
+    } catch (e) {
+      console.error("URL 解析失败:", rel, e);
+      return rel;
+    }
+  };
+
   const setText = (id, text) => {
     const el = $(id);
     if (el) el.textContent = text;
@@ -121,15 +134,9 @@
     const zoomBtn = $("gameZoomBtn");
     const lb = $("lightbox");
     const lbClose = $("lightboxClose");
-    const lbFrame = $("lightboxFrame");
 
     if (frame) {
-      frame.addEventListener("click", (e) => {
-        // Don't open lightbox when clicking inside iframe content; instead let the user
-        // explicitly click the "放大全屏" button to avoid stealing focus from the game.
-        e.preventDefault();
-        openLightbox(gameUrl);
-      });
+      frame.addEventListener("click", () => openLightbox(gameUrl));
     }
 
     if (zoomBtn) {
@@ -138,7 +145,6 @@
 
     if (lb) {
       lb.addEventListener("click", (e) => {
-        // Click on backdrop (but not on iframe content) closes the lightbox.
         if (e.target === lb || e.target === lbClose) closeLightbox();
       });
     }
@@ -151,11 +157,16 @@
     });
   };
 
+  const showError = () => {
+    const grid = document.querySelector(".play-grid");
+    if (grid) grid.style.display = "none";
+    const errEl = $("loadError");
+    if (errEl) errEl.hidden = false;
+  };
+
   // ---- Main flow ----
   if (!gameId) {
-    $("playGrid").setAttribute("aria-busy", "false");
-    $("playGrid").hidden = true;
-    $("loadError").hidden = false;
+    showError();
     return;
   }
 
@@ -166,22 +177,18 @@
     data = await res.json();
   } catch (err) {
     console.error("加载游戏数据失败：", err);
-    $("playGrid").setAttribute("aria-busy", "false");
-    $("playGrid").hidden = true;
-    $("loadError").hidden = false;
+    showError();
     return;
   }
 
   const game = data && data.games && data.games[gameId];
   if (!game) {
-    $("playGrid").setAttribute("aria-busy", "false");
-    $("playGrid").hidden = true;
-    $("loadError").hidden = false;
+    showError();
     return;
   }
 
   // Title / subtitle / type
-  setText("pageTitle", game.title + " · 游戏详情");
+  document.title = (game.title || "游戏") + " · 游戏详情";
   setText("gameTitle", game.title || "");
   setText("gameSubtitle", game.subtitle || "");
   const typeEl = $("gameTypeTag");
@@ -194,11 +201,12 @@
     }
   }
 
-  // Game iframe
+  // Game iframe — 用绝对 URL（基于 location.href + ../ 跳出 play/ 目录）
+  const gameUrl = resolveFromRepoRoot(game.gameUrl);
   const frame = $("gameFrame");
-  if (frame && game.gameUrl) {
-    frame.src = game.gameUrl;
-    bindLightbox(game.gameUrl);
+  if (frame && gameUrl) {
+    frame.src = gameUrl;
+    bindLightbox(gameUrl);
   }
 
   // Controls / roadmap / changelog
@@ -208,6 +216,4 @@
 
   // Giscus comments
   mountGiscus(game.giscus);
-
-  $("playGrid").setAttribute("aria-busy", "false");
 })();
