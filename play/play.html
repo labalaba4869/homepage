@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>游戏详情</title>
+    <link rel="stylesheet" href="play.css" />
+  </head>
+  <body>
+    <div class="play-shell">
+      <header class="play-header">
+        <a class="back-link" href="../index.html">← 返回首页</a>
+      </header>
+
+      <main class="play-grid" id="playGrid" aria-busy="true">
+        <!-- 左列：标题 / 游戏画面 / 操作方式 + 更新计划 -->
+        <section class="col col-left">
+          <div class="block title-block">
+            <h1 id="gameTitle">加载中…</h1>
+            <p class="subtitle" id="gameSubtitle"></p>
+            <p class="type-tag" id="gameTypeTag"></p>
+          </div>
+
+          <div class="block game-block">
+            <div class="game-frame-wrap">
+              <iframe id="gameFrame" src="" allowfullscreen title="游戏画面"></iframe>
+              <button class="game-zoom-btn" id="gameZoomBtn" type="button" aria-label="放大游戏画面">放大全屏</button>
+            </div>
+            <p class="game-hint">点击上方画面可放大到全屏体验，点击空白处退出。</p>
+          </div>
+
+          <div class="block ops-block">
+            <h2>操作方式</h2>
+            <ul class="info-list" id="controlsList"></ul>
+
+            <h2>更新计划</h2>
+            <ul class="info-list" id="roadmapList"></ul>
+          </div>
+        </section>
+
+        <!-- 右列：更新日志 / 玩家反馈 -->
+        <section class="col col-right">
+          <div class="block changelog-block">
+            <h2>更新日志</h2>
+            <ul class="changelog-list" id="changelogList"></ul>
+          </div>
+
+          <div class="block comments-block">
+            <h2>玩家反馈</h2>
+            <p class="comment-hint">需要 GitHub 账号登录后才能留言。我作为仓库维护者可以删除或恢复任何评论，所有人也能看到所有反馈。</p>
+            <div id="giscusContainer"></div>
+          </div>
+        </section>
+      </main>
+
+      <div id="loadError" class="load-error" hidden>
+        <p>没有找到对应的游戏数据，请确认链接是否正确。</p>
+        <a href="../index.html">← 返回首页</a>
+      </div>
+    </div>
+
+    <!-- Lightbox：放大游戏画面 -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="关闭放大">×</button>
+      <iframe id="lightboxFrame" src="" allowfullscreen title="游戏全屏"></iframe>
+    </div>
+
+    <!-- Giscus 评论脚本：按需动态加载（在 play.js 里根据数据插入） -->
+    <script src="play.js"></script>
+  </body>
+</html>

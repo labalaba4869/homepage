@@ -1,0 +1,25 @@
+{
+  "games": {
+    "card-search-and-attack": {
+      "title": "卡牌搜打撤",
+      "subtitle": "夜幕营地",
+      "type": "策略卡牌/搜打撤",
+      "description": "在地图中探索各色道具，收集资源，构建你的策略卡组。Godot 引擎导出，支持键盘 / 鼠标即时游玩。",
+      "gameUrl": "games/card-search-and-attack/index.html",
+      "coverImage": "assets/images/cover-card-search-and-attack.jpg",
+      "controls": [],
+      "roadmap": [],
+      "changelog": [
+        { "date": "2026-08-03", "text": "更换主菜单背景图，新增「夜幕营地」主题" },
+        { "date": "2026-08-01", "text": "修复部分卡牌效果叠加异常" },
+        { "date": "2026-07-25", "text": "首次发布可玩版本" }
+      ],
+      "giscus": {
+        "repo": "labalaba4869/homepage",
+        "repoId": "1320189654",
+        "category": "General",
+        "categoryId": "DIC_kwDOTrB-1s4DClF-"
+      }
+    }
+  }
+}
