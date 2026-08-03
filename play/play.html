@@ -28,22 +28,22 @@
         <p class="game-hint">点击上方画面或「放大全屏」可进入全屏体验，按 ESC 退出。</p>
       </section>
 
-      <!-- 底部：两列 — 左=操作+更新计划 / 右=更新日志+玩家反馈 -->
+      <!-- 底部：两列 — 左=更新日志 / 右上方=操作方式+更新计划 / 右下方=玩家反馈 -->
       <div class="play-grid">
         <section class="col col-left">
+          <div class="block changelog-block">
+            <h2>更新日志</h2>
+            <ul class="changelog-list" id="changelogList"></ul>
+          </div>
+        </section>
+
+        <section class="col col-right">
           <div class="block ops-block">
             <h2>操作方式</h2>
             <ul class="info-list" id="controlsList"></ul>
 
             <h2>更新计划</h2>
             <ul class="info-list" id="roadmapList"></ul>
-          </div>
-        </section>
-
-        <section class="col col-right">
-          <div class="block changelog-block">
-            <h2>更新日志</h2>
-            <ul class="changelog-list" id="changelogList"></ul>
           </div>
 
           <div class="block comments-block">
@@ -60,10 +60,20 @@
       </div>
     </div>
 
-    <!-- Lightbox：放大游戏画面 -->
+    <!-- Lightbox：全屏游戏 -->
     <div class="lightbox" id="lightbox" aria-hidden="true">
       <button class="lightbox-close" id="lightboxClose" type="button" aria-label="关闭放大">×</button>
       <iframe id="lightboxFrame" src="" allowfullscreen title="游戏全屏"></iframe>
+    </div>
+
+    <!-- 弹出日志详情 -->
+    <div class="log-modal" id="logModal" aria-hidden="true">
+      <div class="log-modal-bg" id="logModalBg"></div>
+      <div class="log-modal-body">
+        <button class="log-modal-close" id="logModalClose" type="button" aria-label="关闭详情">×</button>
+        <h2 id="logModalTitle"></h2>
+        <p id="logModalDetail"></p>
+      </div>
     </div>
 
     <script src="play.js"></script>

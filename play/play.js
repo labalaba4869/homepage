@@ -79,6 +79,20 @@
       text.textContent = e.text || "";
       li.appendChild(date);
       li.appendChild(text);
+
+      if (e.detail) {
+        li.classList.add("clickable");
+        li.addEventListener("click", () => {
+          setText("logModalTitle", e.date || "");
+          setText("logModalDetail", e.detail || "");
+          const modal = $("logModal");
+          if (modal) {
+            modal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+          }
+        });
+      }
+
       listEl.appendChild(li);
     });
   };
@@ -151,10 +165,31 @@
     if (lbClose) lbClose.addEventListener("click", closeLightbox);
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lb && lb.getAttribute("aria-hidden") === "false") {
+      if (e.key !== "Escape") return;
+      if (lb && lb.getAttribute("aria-hidden") === "false") {
         closeLightbox();
+        return;
+      }
+      const lm = $("logModal");
+      if (lm && lm.getAttribute("aria-hidden") === "false") {
+        lm.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
       }
     });
+  };
+
+  const bindLogModal = () => {
+    const bg = $("logModalBg");
+    const closeBtn = $("logModalClose");
+    const closeModal = () => {
+      const lm = $("logModal");
+      if (lm) {
+        lm.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+    };
+    if (bg) bg.addEventListener("click", closeModal);
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
   };
 
   const showError = () => {
@@ -208,6 +243,8 @@
     frame.src = gameUrl;
     bindLightbox(gameUrl);
   }
+
+  bindLogModal();
 
   // Controls / roadmap / changelog
   renderControls($("controlsList"), game.controls);
