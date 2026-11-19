@@ -6,6 +6,18 @@
 # 依赖目录（按惯例不进 git，几万个小文件会让仓库膨胀、push 极慢）
 node_modules/
 
+# 主页不依赖的本地游戏开发副本、评审输出和临时构建
+/.tmp-battle-impl/
+/staging/
+/output/
+/outputs/
+
+# 当前只在本机运行的 Markdown 构建工具
+/tools/content/
+/build-content.cmd
+/preview-content.cmd
+/内容发布说明.md
+
 # 系统/编辑器垃圾
 Thumbs.db
 .DS_Store
