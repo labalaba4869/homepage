@@ -250,6 +250,55 @@ a { color: inherit; text-decoration: none; }
 
 .changelog-list .text { color: var(--text); }
 
+/* Compact preview (5 entries); expanded archive (10 entries per page). */
+.changelog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.changelog-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.changelog-footer[hidden],
+.changelog-pagination[hidden] { display: none; }
+
+.changelog-toggle,
+.changelog-page-button {
+  min-height: 36px;
+  border: 1px solid rgba(166, 108, 255, 0.3);
+  border-radius: 6px;
+  color: var(--text);
+  background: rgba(166, 108, 255, 0.08);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.changelog-toggle { padding: 6px 12px; }
+.changelog-page-button { width: 36px; padding: 0; font-size: 18px; }
+.changelog-page-status { min-width: 82px; color: var(--muted); font-size: 12px; text-align: center; }
+
+.changelog-toggle:hover,
+.changelog-page-button:not(:disabled):hover {
+  border-color: var(--cyan);
+  background: rgba(67, 231, 255, 0.08);
+}
+
+.changelog-toggle:focus-visible,
+.changelog-page-button:focus-visible,
+.changelog-page-status:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.changelog-page-button:disabled { opacity: 0.35; cursor: default; }
+
 /* Comments / Giscus container */
 .comment-hint {
   margin: 0 0 12px;
@@ -337,18 +386,16 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 0 40px rgba(166, 108, 255, 0.22);
 }
 
-.log-modal-body h2 {
+.log-modal-body > h2 {
   margin: 0 0 10px;
   font-size: 20px;
   color: #fff;
+  padding-right: 34px;
 }
 
-.log-modal-body p {
-  margin: 0;
-  color: var(--muted);
+.log-modal-body .markdown-body {
   font-size: 14px;
   line-height: 1.75;
-  white-space: pre-wrap;
 }
 
 .log-modal-close {
@@ -377,7 +424,8 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.changelog-list .clickable:hover {
+.changelog-list .clickable:hover,
+.changelog-list .clickable:focus-visible {
   background: rgba(166, 108, 255, 0.08);
   border-color: rgba(166, 108, 255, 0.25);
   border-radius: 6px;

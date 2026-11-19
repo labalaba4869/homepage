@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>游戏详情</title>
     <link rel="stylesheet" href="play.css" />
+    <link rel="stylesheet" href="../css/content.css" />
   </head>
   <body>
     <div class="play-shell">
@@ -34,6 +35,14 @@
           <div class="block changelog-block">
             <h2>更新日志</h2>
             <ul class="changelog-list" id="changelogList"></ul>
+            <div class="changelog-footer" id="changelogFooter" hidden>
+              <button class="changelog-toggle" id="changelogToggle" type="button" aria-controls="changelogList changelogPagination" aria-expanded="false">更多更新日志</button>
+              <nav class="changelog-pagination" id="changelogPagination" aria-label="更新日志分页" hidden>
+                <button class="changelog-page-button" id="changelogPrev" type="button" aria-label="上一页日志" title="上一页" disabled>&larr;</button>
+                <span class="changelog-page-status" id="changelogPageStatus" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></span>
+                <button class="changelog-page-button" id="changelogNext" type="button" aria-label="下一页日志" title="下一页">&rarr;</button>
+              </nav>
+            </div>
           </div>
 
           <div class="block ops-block">
@@ -69,10 +78,10 @@
     <!-- 弹出日志详情 -->
     <div class="log-modal" id="logModal" aria-hidden="true">
       <div class="log-modal-bg" id="logModalBg"></div>
-      <div class="log-modal-body">
+      <div class="log-modal-body" role="dialog" aria-modal="true" aria-labelledby="logModalTitle" tabindex="-1">
         <button class="log-modal-close" id="logModalClose" type="button" aria-label="关闭详情">×</button>
         <h2 id="logModalTitle"></h2>
-        <p id="logModalDetail"></p>
+        <div id="logModalDetail" class="markdown-body"></div>
       </div>
     </div>
 
