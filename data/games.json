@@ -1,7 +1,7 @@
 {
   "games": {
     "card-search-and-attack": {
-      "title": "卡牌搜打撤",
+      "title": "雾尽之前",
       "subtitle": "夜幕营地",
       "type": "策略卡牌/搜打撤",
       "description": "在地图中探索各色道具，收集资源，构建你的策略卡组。Godot 引擎导出，支持键盘 / 鼠标即时游玩。",
